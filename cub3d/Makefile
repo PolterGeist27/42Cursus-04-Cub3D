@@ -6,7 +6,7 @@
 #    By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:26:28 by pealexan          #+#    #+#              #
-#    Updated: 2023/06/13 14:37:45 by pealexan         ###   ########.fr        #
+#    Updated: 2023/06/13 15:31:15 by pealexan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CYAN 	= \033[1;36m
 WHITE 	= \033[1;37m
 
 #_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ COMMANDS _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
-CC = cc
+CC = clang
 RM = rm -rf
 AR = ar -rcs
 
@@ -59,7 +59,7 @@ $(NAME): $(OBJ_DIR) $(TARGET)
 	$(MAKE) $(MK) -C $(MLX_PATH)
 
 #	echo "[$(CYAN) Linking $(RESET)] $(GREEN)LIBFT + $(PURPLE)MINILIBX$(RESET)"
-	echo "[$(CYAN)Compiling$(RESET)] $(CFLAGS) $(EXTRA) $(YELLOW)$(LIBFT) $(PURPLE)$(MLX)$(RESET)"
+	echo "[$(CYAN)Compiling$(RESET)] $(CFLAGS) $(YELLOW)$(LIBFT) $(PURPLE)$(MLX)$(RESET) $(EXTRA)"
 	$(CC) $(CFLAGS) $(TARGET) -o $(NAME) -I $(DEPS) $(EXTRA) $(LIBFT) $(MLX)
 
 	echo "$(GREEN)Done.$(RESET)"
