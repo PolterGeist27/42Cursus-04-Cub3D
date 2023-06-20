@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:57:25 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/20 16:00:59 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:13:38 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_data(t_data *data)
 
     // Minilibx
 	data->mlx = mlx_init();
-	data->mlx_win = mlx_new_window(data->mlx, 1920, 1080, "FdF");
+	data->mlx_win = mlx_new_window(data->mlx, 1920, 1080, "Cub3D");
 	data->img_w = 1920;
 	data->img_h = 1080;
 	data->img = mlx_new_image(data->mlx, data->img_w, data->img_h);

@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/20 16:00:26 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:10:40 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,14 @@ typedef struct s_data {
 	int		endian;
 }	t_data;
 
+//      KEY VALUES:     //
+#define ESC 65307
 
-//      init.c
+//      init.c          //
 void	init_data(t_data *data);
 int	    ft_close(t_data *data);
+
+//      keys.c          //
+int	    check_keys(int key, t_data *data);
 
 #endif

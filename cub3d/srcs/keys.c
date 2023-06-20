@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/20 11:48:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/20 16:05:49 by diogmart         ###   ########.fr       */
+/*   Created: 2023/06/20 16:05:55 by diogmart          #+#    #+#             */
+/*   Updated: 2023/06/20 16:10:47 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main(int argc, char **argv)
+int	check_keys(int key, t_data *data)
 {
-    t_data *data;
-    (void)argc;
-    (void)argv;
-
-    data = (t_data *)malloc(sizeof(t_data));
-    init_data(data);
-    mlx_hook(data->mlx_win, 2, (1L << 0), check_keys, data);
-    mlx_hook(data->mlx_win, 17, 0, ft_close, data);
-    mlx_loop(data->mlx);
-    //ft_close(data);
-    return (0);
+	if (key == ESC)
+		ft_close(data);
+	else
+		return (0);
+	mlx_clear_window(data->mlx, data->mlx_win);
+	mlx_destroy_image(data->mlx, data->img);
+	data->img = mlx_new_image(data->mlx, data->img_w, data->img_h);
+	return (1);
 }
