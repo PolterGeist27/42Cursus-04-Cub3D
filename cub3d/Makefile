@@ -15,9 +15,9 @@ RM = rm -rf
 AR = ar -rcs
 
 #_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ FLAGS _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
-CFLAGS	= -Wall -Wextra -Werror -I $(LIBDIR)
+CFLAGS = -Wall -Wextra -Werror
+LFLAGS = $(NAMELIBFT) $(NAMEMLX) -L$(INCLIB) -lXext -lX11 -lm -lbsd
 MK		= --no-print-directory
-LFLAGS	= -L $(INCLIB) -lXext -lX11 -lm -lbsd $(NAMEMLX)
 
 #_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ FOLDERS _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
 INC				= includes
@@ -33,12 +33,12 @@ OBJS			= $(_FILES:%=%.o)
 TARGET			= $(addprefix $(OBJ_DIR)/, $(OBJS))
 
 NAMELIBFT		= libft/libft.a
-NAMEMLX			= minilibx/libmlx.a
+NAMEMLX			= minilibx-linux/libmlx.a
 
 #_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ RULES _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
 all: $(NAME)
 
-$(NAME): $(OBJ_DIR) $(TARGET) $(NAMELIBFT) $(NAMEMLX)
+$(NAME): $(NAMELIBFT) $(NAMEMLX) $(OBJ_DIR) $(TARGET)
 	$(CC) $(CFLAGS) $(TARGET) $(NAMELIBFT) $(LFLAGS) -o $(NAME) -I $(INC)
 
 	echo "$(GREEN)Done.$(RESET)"
@@ -50,18 +50,21 @@ $(OBJ_DIR)/%.o : %.c
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
-$(NAMEMLX):
-	@make -s -C ./minilibx-linux
-
-
 $(NAMELIBFT):
 	@make all -s -C ./libft
 
+$(NAMEMLX):
+	@make all -s -C ./minilibx-linux
+
 clean:
+	@make -s -C ./libft clean
+	@make -s -C ./minilibx-linux clean
 	echo "[$(RED) Deleted $(RESET)] $(GREEN)$(OBJ_DIR)$(RESET)"
 	$(RM) $(OBJ_DIR)
 
 fclean: clean
+	@make -s -C ./libft fclean
+	@make -s -C ./minilibx-linux clean
 	echo "[$(RED) Deleted $(RESET)] $(GREEN)$(NAME)$(RESET)"
 	$(RM) $(NAME)
 
