@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/20 11:48:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/20 12:12:12 by diogmart         ###   ########.fr       */
+/*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
+/*   Updated: 2023/06/20 12:00:43 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef CUB3D_H
+# define CUB3D_H
 
-int main(int argc, char **argv)
-{
-    (void)argc;
-    (void)argv;
-}
+# include "libft.h"
+# include "../minilibx-linux/mlx.h"
+
+#endif
