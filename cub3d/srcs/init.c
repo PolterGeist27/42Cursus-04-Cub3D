@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:57:25 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/20 16:13:38 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/07/19 11:24:26 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,27 @@ void	init_data(t_data *data)
 	data->img = mlx_new_image(data->mlx, data->img_w, data->img_h);
 	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
 			&data->line_length, &data->endian);
+}
+
+void	file_type(char *file)
+{
+	char	*temp;
+	int		fd;
+	
+	fd = 0;
+	temp = ft_strrchr(file, '.');
+	if (ft_strlen(temp) != 4 || ft_strncmp(temp, ".cub", 4))
+	{
+		ft_putstr_fd("Invalid file type\n", 2);
+		exit(2);
+	}
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+	{
+		ft_putstr_fd("File does not exist\n", 2);
+		exit(2);
+	}
+	close(fd);
 }
 
 int	ft_close(t_data *data)
