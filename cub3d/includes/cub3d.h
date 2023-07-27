@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/07/19 11:27:50 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/07/27 11:53:09 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,19 @@ typedef struct s_data {
 void	init_data(t_data *data);
 void	file_type(char *file);
 int	    ft_close(t_data *data);
+void	ft_error(t_data **data);
+void	free_data(t_data *data);
 
 //      keys.c          //
 int	    check_keys(int key, t_data *data);
+
+//		read_file.c		//
+int		get_width(char *file_name);
+int		get_height(char *file_name);
+void	fill_row(int *row, char *line);
+void	read_file(t_data **data, char *file_name);
+
+//		utils.c			//
+int		ft_ccount(char *str);
 
 #endif
