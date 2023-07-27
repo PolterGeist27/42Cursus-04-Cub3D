@@ -6,11 +6,24 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:48:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/07/19 11:28:35 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:12:20 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+/*
+TODO:
+    - change the read_file and other functions to better
+    comply with the subject;
+    - check for errors in the files before copying them;
+    - create a player;
+    - add movement;
+    - raytracing;
+    - textures;
+    ...
+    - norm;
+*/
 
 int main(int argc, char **argv)
 {
@@ -26,9 +39,10 @@ int main(int argc, char **argv)
 	file_type(argv[1]);
     data = (t_data *)malloc(sizeof(t_data));
 	init_data(data);
+    read_file(&data, argv[1]);
     mlx_hook(data->mlx_win, 17, 0, ft_close, data);
     mlx_hook(data->mlx_win, KeyPress, KeyPressMask, check_keys, data);
     mlx_loop(data->mlx);
-    //ft_close(data);
+    ft_close(data);
     return (0);
 }

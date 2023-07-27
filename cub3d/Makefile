@@ -28,7 +28,7 @@ INCLIB			= $(INC)/../lib
 
 #_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ FILES _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
 NAME			= cub3D
-_FILES			= main init keys
+_FILES			= main init keys read_file utils
 OBJS			= $(_FILES:%=%.o)
 TARGET			= $(addprefix $(OBJ_DIR)/, $(OBJS))
 
