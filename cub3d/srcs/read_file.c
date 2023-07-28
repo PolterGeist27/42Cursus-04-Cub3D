@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:21:50 by diogmart          #+#    #+#             */
-/*   Updated: 2023/07/27 12:01:34 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/07/28 11:07:39 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	get_height(char *file_name)
 	return (height);
 }
 
-void	fill_row(int *row, char *line)
+void	fill_row(char *row, char *line)
 {
 	char	**split;
 	int		i;
@@ -64,11 +64,10 @@ void	fill_row(int *row, char *line)
 	split = ft_split(line, ' ');
 	while (split[j] != NULL)
 	{
-		row[i++] = ft_atoi(split[j]);
-		free(split[j]);
+		row[i++] = split[j][0];
 		j++;
 	}
-	free(split);
+	ft_free_split(split);
 }
 
 void	read_file(t_data **data, char *file_name)
@@ -76,7 +75,6 @@ void	read_file(t_data **data, char *file_name)
 	char	*line;
 	int		fd;
 	int		i;
-	int		h;
 
 	fd = open(file_name, O_RDONLY, 0);
 	if (fd < 0)
@@ -84,14 +82,11 @@ void	read_file(t_data **data, char *file_name)
 	(*data)->map_h = get_height(file_name);
 	(*data)->map_w = get_width(file_name);
 	i = 0;
-	h = 0;
-	(*data)->map = (int **)ft_calloc(sizeof(int *), ((*data)->map_h));
+	(*data)->map = (char **)ft_calloc(sizeof(char *), ((*data)->map_h + 1));
 	line = get_next_line(fd);
-	while (h < (*data)->map_h)
-		(*data)->map[h++] = (int *)ft_calloc(sizeof(int), ((*data)->map_w));
-	while (line != NULL && i < (*data)->map_h)
+	while (line != NULL && i < ((*data)->map_h))
 	{
-		fill_row((*data)->map[i++], line);
+		(*data)->map[i++] = ft_strtrim(line, "\n");
 		free(line);
 		line = get_next_line(fd);
 	}
