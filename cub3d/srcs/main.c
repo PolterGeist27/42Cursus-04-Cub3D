@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:48:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/07/28 11:16:51 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/07/29 11:24:18 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ int main(int argc, char **argv)
     data = (t_data *)malloc(sizeof(t_data));
 	init_data(data);
     read_file(&data, argv[1]);
-    if (check_walls(data))
+    if (check_walls(data)) {
         ft_error(&data);
+    }
+	draw_map2D(data);
     mlx_hook(data->mlx_win, 17, 0, ft_close, data);
     mlx_hook(data->mlx_win, KeyPress, KeyPressMask, check_keys, data);
     mlx_loop(data->mlx);

@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/07/28 11:19:10 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/07/29 11:22:11 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,19 @@
 #include <fcntl.h>
 #include <string.h>
 
+typedef struct s_player
+{
+	float	x;
+	float	y;
+	char	direction;
+}	t_player;
+
 typedef struct s_data {
 	int		map_w;
 	int		map_h;
 	char	**map;
+
+	t_player player;
 
     // Minilibx
 	void	*mlx;
@@ -42,12 +51,6 @@ typedef struct s_data {
 	int		endian;
 }	t_data;
 
-typedef struct s_player
-{
-	float x;
-	float y;
-}	t_player;
-
 
 //      KEY VALUES:     //
 # define ESC 65307
@@ -60,7 +63,6 @@ typedef struct s_player
 
 //      init.c          //
 void	init_data(t_data *data);
-void	file_type(char *file);
 int	    ft_close(t_data *data);
 void	ft_error(t_data **data);
 void	free_data(t_data *data);
@@ -78,7 +80,13 @@ void	read_file(t_data **data, char *file_name);
 int		ft_ccount(char *str);
 
 //		validate.c		//
+void	file_type(char *file);
 int		check_walls(t_data *data);
+
+//		draw.c			//
+int		check_limits(t_data *data, int x, int y);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	draw_map2D(t_data *data);
 
 
 #endif

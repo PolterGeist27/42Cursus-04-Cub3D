@@ -6,11 +6,32 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:31:28 by diogmart          #+#    #+#             */
-/*   Updated: 2023/07/28 11:10:39 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/07/29 10:44:19 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	file_type(char *file)
+{
+	char	*temp;
+	int		fd;
+	
+	fd = 0;
+	temp = ft_strrchr(file, '.');
+	if (ft_strlen(temp) != 4 || ft_strncmp(temp, ".cub", 4))
+	{
+		ft_putstr_fd("Invalid file type\n", 2);
+		exit(2);
+	}
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+	{
+		ft_putstr_fd("File does not exist\n", 2);
+		exit(2);
+	}
+	close(fd);
+}
 
 int	check_walls(t_data *data)
 {
