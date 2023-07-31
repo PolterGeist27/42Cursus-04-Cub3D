@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/07/29 11:22:11 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/07/31 10:35:03 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	read_file(t_data **data, char *file_name);
 
 //		utils.c			//
 int		ft_ccount(char *str);
+char	*ft_remove_spaces(char *str);
 
 //		validate.c		//
 void	file_type(char *file);

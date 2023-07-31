@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:21:50 by diogmart          #+#    #+#             */
-/*   Updated: 2023/07/28 11:07:39 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/07/31 10:37:26 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,23 +53,6 @@ int	get_height(char *file_name)
 	return (height);
 }
 
-void	fill_row(char *row, char *line)
-{
-	char	**split;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	split = ft_split(line, ' ');
-	while (split[j] != NULL)
-	{
-		row[i++] = split[j][0];
-		j++;
-	}
-	ft_free_split(split);
-}
-
 void	read_file(t_data **data, char *file_name)
 {
 	char	*line;
@@ -86,7 +69,7 @@ void	read_file(t_data **data, char *file_name)
 	line = get_next_line(fd);
 	while (line != NULL && i < ((*data)->map_h))
 	{
-		(*data)->map[i++] = ft_strtrim(line, "\n");
+		(*data)->map[i++] = ft_remove_spaces(line);
 		free(line);
 		line = get_next_line(fd);
 	}
