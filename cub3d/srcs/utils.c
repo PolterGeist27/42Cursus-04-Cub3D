@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:37:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/07/31 10:34:52 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/08/04 11:21:41 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ char	*ft_remove_spaces(char *str)
 
 	i = 0;
 	j = 0;
-	final = (char *)malloc((sizeof(char) * ft_ccount(str)) + 1);
-	while(str[i] != '\0' || str[i] != '\n')
+	final = (char *)malloc(sizeof(char) * (ft_ccount(str) + 1));
+	while(str[i] != '\0' && str[i] != '\n')
 	{
 		if (str[i] != '\n' && str[i] != ' ')
 		{
