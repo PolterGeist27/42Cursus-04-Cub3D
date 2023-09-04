@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:21:50 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/04 11:33:57 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:31:24 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,28 @@ void	read_file(t_data **data, char *file_name)
 	close(fd);
 	if (check_allowed_chars(*data) == 1)
 		ft_error(data);
+}
+
+void	copy_file(t_data **data, char *file_name)
+{
+	char	*line;
+	int		fd;
+	int		i;
+
+	fd = open(file_name, O_RDONLY, 0);
+	if (fd < 0)
+		ft_error(data);
+	i = 0;
+	(*data)->file_h = get_height(file_name);
+	if ((*data)->file_h <= 0)
+		ft_error(data);
+	(*data)->file = (char **)ft_calloc(sizeof(char *), (*data)->file_h + 1);
+	line = get_next_line(fd);
+	while (line != NULL && i < (*data)->file_h)
+	{
+		(*data)->file[i++] = ft_strdup(line);
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
 }

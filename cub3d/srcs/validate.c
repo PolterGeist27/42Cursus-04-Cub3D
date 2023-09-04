@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:31:28 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/04 12:27:39 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:23:19 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,10 @@ void	file_type(char *file)
 	close(fd);
 }
 
-int	check_file(int fd)
+/* int	check_file(char *line)
 {
-	(void)fd;
-	return 0;
-}
+	(void)line;
+} */
 
 int	check_walls(t_data *data)
 {

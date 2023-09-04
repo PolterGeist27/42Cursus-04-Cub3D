@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/04 12:40:06 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:30:01 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,20 @@ typedef struct s_data {
 
 	t_mlx	*st_mlx; // st = struct
 
+	char		**map;
 	int			map_w;
 	int			map_h;
-	char		**map;
+
+	char		**file;
+	int			file_h;
+
+	char		*NO;
+	char		*SO;
+	char		*WE;
+	char		*EA;
+
+	int			F;
+	int			C;
 
 	t_player	player;
 
@@ -80,7 +91,7 @@ void	init_data(t_data *data, t_mlx **st_mlx);
 int		ft_close(t_data *data, t_mlx *st_mlx);
 void	ft_error(t_data **data);
 void	free_data(t_data *data);
-void	init_mlx(t_data *data, t_mlx *mlx);
+void	init_window(t_data *data, t_mlx *mlx);
 
 //      keys.c          //
 int		check_keys(int key, t_data *data);
@@ -90,6 +101,7 @@ int		get_width(char *file_name);
 int		get_height(char *file_name);
 void	fill_row(char *row, char *line);
 void	read_file(t_data **data, char *file_name);
+void	copy_file(t_data **data, char *file_name);
 
 //		utils.c			//
 int		ft_ccount(char *str);

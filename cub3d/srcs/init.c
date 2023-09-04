@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:57:25 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/04 12:40:38 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:35:48 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 void	init_data(t_data *data, t_mlx **st_mlx)
 {
+	data->map = NULL;
 	data->map_h = 0;
 	data->map_w = 0;
-	data->map = NULL;
+	data->file = NULL;
+	data->file_h = 0;
 	data->st_mlx = malloc(sizeof(t_mlx));
 
     // Minilibx
@@ -52,20 +54,13 @@ void	ft_error(t_data **data)
 
 void	free_data(t_data *data)
 {
-	int	i;
-
-	i = 0;
-	while ((data->map && data->map[i]) && i < data->map_h)
-	{
-		free(data->map[i]);
-		i++;
-	}
-	if (data->map)
-		free(data->map);
+	free(data->st_mlx);
+	ft_free_split(data->file);
+	ft_free_split(data->map);
 	free(data);
 }
 
-void	init_mlx(t_data *data, t_mlx *mlx)
+void	init_window(t_data *data, t_mlx *mlx)
 {
 	draw_map2D(data, data->st_mlx);
     mlx_hook(mlx->mlx_win, 17, 0, ft_close, data);

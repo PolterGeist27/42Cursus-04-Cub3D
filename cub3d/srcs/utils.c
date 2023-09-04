@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:37:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/04 11:31:10 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:22:30 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,48 @@ char	*ft_remove_spaces(char *str)
 	final[j] = '\0';
 	return (final);
 }
+
+/*
+	This function will receive the color values of the celling ("C")
+	and floor ("F") and convert them into their hex value, saving the
+	result in the variables in data;
+
+	Notes:
+		-funtion is wrong;
+		-is it really needed to pass to hex ???
+*/
+
+/* void	char_to_hex(t_data **data, char *nbr)
+{
+	char	**array;
+	char	option;
+	int		i;
+	int		n;
+	int		result;
+
+	i = 0;
+	while (*nbr && (*nbr != 'F' || *nbr != 'C'))
+		nbr++;
+	option = *nbr;
+	while (*nbr && !ft_isnumeric(*nbr))
+		nbr++;
+	result = 0x0;
+	array = ft_split(nbr, ',');
+	while (array && array[i] != NULL)
+	{
+		n = ft_atoi(array[i]);
+		if (n < 0 || n > 255)
+		{
+			ft_free_split(array);
+			ft_error(data);
+		}
+		result = (result * 256) + n;
+		i++;
+	}
+	if (option == 'F')
+		(*data)->F = result;
+	else if (option == 'C')
+		(*data)->C = result;
+	else
+		ft_error(data);
+} */
