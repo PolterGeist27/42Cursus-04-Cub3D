@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:31:28 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/04 11:47:24 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/04 12:27:39 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,22 @@ void	file_type(char *file)
 	temp = ft_strrchr(file, '.');
 	if (ft_strlen(temp) != 4 || ft_strncmp(temp, ".cub", 4))
 	{
-		ft_putstr_fd("Invalid file type\n", 2);
+		ft_putstr_fd("Error: Invalid file type\n", 2);
 		exit(2);
 	}
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_putstr_fd("File does not exist\n", 2);
+		ft_putstr_fd("Error: File does not exist\n", 2);
 		exit(2);
 	}
 	close(fd);
+}
+
+int	check_file(int fd)
+{
+	(void)fd;
+	return 0;
 }
 
 int	check_walls(t_data *data)
