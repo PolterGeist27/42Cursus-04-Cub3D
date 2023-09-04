@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/07/31 10:35:03 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/04 11:26:54 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ char	*ft_remove_spaces(char *str);
 //		validate.c		//
 void	file_type(char *file);
 int		check_walls(t_data *data);
+int		check_allowed_chars(t_data *data);
 
 //		draw.c			//
 int		check_limits(t_data *data, int x, int y);

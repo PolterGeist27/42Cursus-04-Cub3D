@@ -70,7 +70,7 @@ fclean: clean
 
 re: fclean all
 
-run:
+run: $(NAME)
 	./cub3D
 
 r: re run

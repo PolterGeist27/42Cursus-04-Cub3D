@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:21:50 by diogmart          #+#    #+#             */
-/*   Updated: 2023/07/31 10:37:26 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/04 11:33:57 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	read_file(t_data **data, char *file_name)
 		ft_error(data);
 	(*data)->map_h = get_height(file_name);
 	(*data)->map_w = get_width(file_name);
+	if ((*data)->map_w <= 0 || (*data)->map_h <= 0)
+		ft_error(data);
 	i = 0;
 	(*data)->map = (char **)ft_calloc(sizeof(char *), ((*data)->map_h + 1));
 	line = get_next_line(fd);
@@ -74,4 +76,6 @@ void	read_file(t_data **data, char *file_name)
 		line = get_next_line(fd);
 	}
 	close(fd);
+	if (check_allowed_chars(*data) == 1)
+		ft_error(data);
 }

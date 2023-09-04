@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:37:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/08/04 11:21:41 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/04 11:31:10 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_ccount(char *str)
 
 	i = 0;
 	count = 0;
-	while(str[i] != '\0')
+	while(str && str[i] != '\0')
 	{
 		if (str[i] != '\n' && str[i] != ' ')
 			count++;

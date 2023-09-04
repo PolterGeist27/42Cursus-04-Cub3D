@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:57:25 by diogmart          #+#    #+#             */
-/*   Updated: 2023/07/29 10:44:05 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/04 11:40:47 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ int	ft_close(t_data *data)
 void	ft_error(t_data **data)
 {
 	ft_printf("Error\n");
+	mlx_destroy_window((*data)->mlx, (*data)->mlx_win);
+	mlx_destroy_image((*data)->mlx, (*data)->img);
+	mlx_destroy_display((*data)->mlx);
+	free((*data)->mlx);
 	free_data(*data);
 	exit(1);
 }
@@ -50,11 +54,12 @@ void	free_data(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < data->map_h)
+	while ((data->map && data->map[i]) && i < data->map_h)
 	{
 		free(data->map[i]);
 		i++;
 	}
-	free(data->map);
+	if (data->map)
+		free(data->map);
 	free(data);
 }

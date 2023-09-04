@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:48:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/07/29 11:24:18 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/04 11:45:27 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ TODO:
     - textures;
     ...
     - norm;
+
+Known issues:
+    - valgrind seems to complain about something with padding ?
 */
 
 int main(int argc, char **argv)
