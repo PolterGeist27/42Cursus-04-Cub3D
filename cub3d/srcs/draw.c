@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:48:07 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/04 12:35:08 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/05 12:33:35 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,36 @@ void	draw_map2D(t_data *data, t_mlx *st_mlx)
 				my_mlx_pixel_put(st_mlx, x, y, 0x00ff00);
 			if (ft_strchr("NSEW", pixel))
 				my_mlx_pixel_put(st_mlx, x, y, 0xffffff);
+			x++;
+		}
+		y++;
+	}
+	mlx_put_image_to_window(st_mlx->mlx, st_mlx->mlx_win, st_mlx->img, 0, 0);
+}
+
+void	draw_celling_floor(t_data *data, t_mlx *st_mlx)
+{
+	int	x;
+	int	y;
+	
+	(void)data;
+	y = 0;
+	while (y < (st_mlx->img_h / 2))
+	{
+		x = 0;
+		while (x < st_mlx->img_w)
+		{
+			my_mlx_pixel_put(st_mlx, x, y, 0xffffff);
+			x++;
+		}
+		y++;
+	}
+	while (y < st_mlx->img_h)
+	{
+		x = 0;
+		while (x < st_mlx->img_w)
+		{
+			my_mlx_pixel_put(st_mlx, x, y, 0x0000ff);
 			x++;
 		}
 		y++;

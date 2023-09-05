@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/04 14:30:01 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/05 12:30:17 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <string.h>
+
+typedef struct s_texture
+{
+	char	*path;
+	void	*xpm;
+}	t_texture;
 
 typedef struct s_player
 {
@@ -55,27 +61,27 @@ typedef struct s_data {
 	char		**file;
 	int			file_h;
 
-	char		*NO;
-	char		*SO;
-	char		*WE;
-	char		*EA;
+	t_texture		*NO;
+	t_texture		*SO;
+	t_texture		*WE;
+	t_texture		*EA;
 
-	int			F;
-	int			C;
+	int			F[3];
+	int			C[3];
 
 	t_player	player;
 
 }	t_data;
 
 //		NEEDED TEXTURES		//
-typedef enum e_textures {
+/* typedef enum e_textures {
 	NO,
 	SO,
 	WE,
 	EA,
 	F,
 	C	
-}	t_textures;
+}	t_textures; */
 
 //      KEY VALUES:     //
 # define ESC 65307
@@ -106,15 +112,20 @@ void	copy_file(t_data **data, char *file_name);
 //		utils.c			//
 int		ft_ccount(char *str);
 char	*ft_remove_spaces(char *str);
+int		is_line_c(char *line, char c);
 
 //		validate.c		//
 void	file_type(char *file);
 int		check_walls(t_data *data);
 int		check_allowed_chars(t_data *data);
 
+//		validate2.c		//
+int		check_info(t_data *data, char *line);
+
 //		draw.c			//
 int		check_limits(t_data *data, int x, int y);
 void	my_mlx_pixel_put(t_mlx *st_mlx, int x, int y, int color);
 void	draw_map2D(t_data *data, t_mlx *st_mlx);
+void	draw_celling(t_data *data, t_mlx *st_mlx);
 
 #endif
