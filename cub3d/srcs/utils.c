@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:37:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/04 14:22:30 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/05 11:21:34 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,24 @@ char	*ft_remove_spaces(char *str)
 	}
 	final[j] = '\0';
 	return (final);
+}
+
+/*
+	Check is a given line is only made up of a char "c" and spaces
+*/
+
+int	is_line_c(char *line, char c)
+{
+	int i;
+
+	i = 0;
+	while (line[i] != '\0')
+	{
+		if (line[i] != c && line[i] != ' ' && line[i] != '\n')
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 /*

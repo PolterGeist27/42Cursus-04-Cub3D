@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:57:25 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/04 14:35:48 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/05 12:30:36 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ void	free_data(t_data *data)
 
 void	init_window(t_data *data, t_mlx *mlx)
 {
-	draw_map2D(data, data->st_mlx);
+	//draw_map2D(data, data->st_mlx);
+	draw_celling(data, data->st_mlx);
     mlx_hook(mlx->mlx_win, 17, 0, ft_close, data);
     mlx_hook(mlx->mlx_win, KeyPress, KeyPressMask, check_keys, data);
     mlx_loop(mlx->mlx);

@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:21:50 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/04 14:31:24 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/05 12:31:00 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,3 +103,13 @@ void	copy_file(t_data **data, char *file_name)
 	}
 	close(fd);
 }
+
+/* int	find_map(t_data *data)
+{
+	int map_start;
+	int	i;
+
+	map_start = 0;
+	i = 0;
+	
+} */
