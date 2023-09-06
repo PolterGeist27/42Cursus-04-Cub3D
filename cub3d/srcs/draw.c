@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:48:07 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/05 12:33:35 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/06 11:32:45 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,26 +61,21 @@ void	draw_celling_floor(t_data *data, t_mlx *st_mlx)
 	int	y;
 	
 	(void)data;
-	y = 0;
-	while (y < (st_mlx->img_h / 2))
+	x = 0;
+	while (x < st_mlx->img_w)
 	{
-		x = 0;
-		while (x < st_mlx->img_w)
+		y = 0;
+		while (y < st_mlx->img_h / 2)
 		{
-			my_mlx_pixel_put(st_mlx, x, y, 0xffffff);
-			x++;
+			my_mlx_pixel_put(st_mlx, x, y, 0x00ffff);
+			y++;
 		}
-		y++;
-	}
-	while (y < st_mlx->img_h)
-	{
-		x = 0;
-		while (x < st_mlx->img_w)
+		while (y < st_mlx->img_h)
 		{
-			my_mlx_pixel_put(st_mlx, x, y, 0x0000ff);
-			x++;
+			my_mlx_pixel_put(st_mlx, x, y, 0x00ff00);
+			y++;
 		}
-		y++;
+		x++;
 	}
 	mlx_put_image_to_window(st_mlx->mlx, st_mlx->mlx_win, st_mlx->img, 0, 0);
 }

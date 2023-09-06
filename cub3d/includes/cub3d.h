@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/05 12:30:17 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/06 11:54:29 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,14 @@ typedef struct s_texture
 
 typedef struct s_player
 {
-	float	x;
-	float	y;
-	char	direction;
+	double	x;
+	double	y;
+
+	double		dirX;
+	double		dirY;
+
+	double planeX;
+	double planeY;
 }	t_player;
 
 typedef struct s_mlx {
@@ -69,7 +74,7 @@ typedef struct s_data {
 	int			F[3];
 	int			C[3];
 
-	t_player	player;
+	t_player	*player;
 
 }	t_data;
 
@@ -126,6 +131,6 @@ int		check_info(t_data *data, char *line);
 int		check_limits(t_data *data, int x, int y);
 void	my_mlx_pixel_put(t_mlx *st_mlx, int x, int y, int color);
 void	draw_map2D(t_data *data, t_mlx *st_mlx);
-void	draw_celling(t_data *data, t_mlx *st_mlx);
+void	draw_celling_floor(t_data *data, t_mlx *st_mlx);
 
 #endif

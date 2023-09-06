@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:37:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/05 11:21:34 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/05 14:26:37 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,46 +69,7 @@ int	is_line_c(char *line, char c)
 }
 
 /*
-	This function will receive the color values of the celling ("C")
-	and floor ("F") and convert them into their hex value, saving the
-	result in the variables in data;
+	to pass rgb to hex:
 
-	Notes:
-		-funtion is wrong;
-		-is it really needed to pass to hex ???
+	r * 0x010000 + g * 0x000100 + b
 */
-
-/* void	char_to_hex(t_data **data, char *nbr)
-{
-	char	**array;
-	char	option;
-	int		i;
-	int		n;
-	int		result;
-
-	i = 0;
-	while (*nbr && (*nbr != 'F' || *nbr != 'C'))
-		nbr++;
-	option = *nbr;
-	while (*nbr && !ft_isnumeric(*nbr))
-		nbr++;
-	result = 0x0;
-	array = ft_split(nbr, ',');
-	while (array && array[i] != NULL)
-	{
-		n = ft_atoi(array[i]);
-		if (n < 0 || n > 255)
-		{
-			ft_free_split(array);
-			ft_error(data);
-		}
-		result = (result * 256) + n;
-		i++;
-	}
-	if (option == 'F')
-		(*data)->F = result;
-	else if (option == 'C')
-		(*data)->C = result;
-	else
-		ft_error(data);
-} */
