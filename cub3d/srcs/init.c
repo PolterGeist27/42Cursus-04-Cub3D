@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:57:25 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/06 11:54:48 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/06 15:24:51 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	init_data(t_data *data, t_mlx **st_mlx)
 	data->file_h = 0;
 	data->st_mlx = malloc(sizeof(t_mlx));
 
-	data->player->planeX = 0;
-	data->player->planeY = 1;
+	//data->player->planeX = 0;
+	//data->player->planeY = 1;
     // Minilibx
 	(*st_mlx)->mlx = mlx_init();
 	(*st_mlx)->mlx_win = mlx_new_window((*st_mlx)->mlx, 1920, 1080, "Cub3D");
