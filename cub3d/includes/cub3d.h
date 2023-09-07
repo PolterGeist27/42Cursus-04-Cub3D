@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/06 11:54:29 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:37:32 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,30 @@
 # include <fcntl.h>
 # include <string.h>
 
-typedef struct s_texture
+//      KEY VALUES:     //
+# define ESC 65307
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define LEFT 65361
+# define RIGHT 65363
+
+# define ALLOWED_CHARS "01NSEW"
+
+typedef struct s_textures
 {
-	char	*path;
-	void	*xpm;
-}	t_texture;
+	char	*NO_path;
+	char	*SO_path;
+	char	*EA_path;
+	char	*WE_path;
+	char	*C_colour;
+	char	*F_colour;
+	void	*NO_img;
+	void	*SO_img;
+	void	*EA_img;
+	void	*WE_img;
+}	t_textures;
 
 typedef struct s_player
 {
@@ -66,13 +85,10 @@ typedef struct s_data {
 	char		**file;
 	int			file_h;
 
-	t_texture		*NO;
-	t_texture		*SO;
-	t_texture		*WE;
-	t_texture		*EA;
+	t_textures		*textures;
 
-	int			F[3];
-	int			C[3];
+/* 	int			F[3];
+	int			C[3]; */
 
 	t_player	*player;
 
@@ -88,14 +104,7 @@ typedef struct s_data {
 	C	
 }	t_textures; */
 
-//      KEY VALUES:     //
-# define ESC 65307
-# define W 119
-# define A 97
-# define S 115
-# define D 100
-# define LEFT 65361
-# define RIGHT 65363
+
 
 //      init.c          //
 void	init_data(t_data *data, t_mlx **st_mlx);
@@ -112,7 +121,7 @@ int		get_width(char *file_name);
 int		get_height(char *file_name);
 void	fill_row(char *row, char *line);
 void	read_file(t_data **data, char *file_name);
-void	copy_file(t_data **data, char *file_name);
+//void	copy_file(t_data **data, char *file_name);
 
 //		utils.c			//
 int		ft_ccount(char *str);
@@ -120,7 +129,7 @@ char	*ft_remove_spaces(char *str);
 int		is_line_c(char *line, char c);
 
 //		validate.c		//
-void	file_type(char *file);
+//void	file_type(char *file);
 int		check_walls(t_data *data);
 int		check_allowed_chars(t_data *data);
 
@@ -132,5 +141,17 @@ int		check_limits(t_data *data, int x, int y);
 void	my_mlx_pixel_put(t_mlx *st_mlx, int x, int y, int color);
 void	draw_map2D(t_data *data, t_mlx *st_mlx);
 void	draw_celling_floor(t_data *data, t_mlx *st_mlx);
+
+
+
+void	file_type(char *file, t_data *data);
+void	file_elements(t_data *data);
+void	handle_elements(char **check, t_data *data);
+int		valid_element(char *identifier);
+void	simple_init(t_data *data);
+void	clean_structs(t_data *data, int i);
+void	copy_file(t_data *data, char *file);
+void	start_mapping(t_data *data, int i);
+
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:48:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/04 14:32:56 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:01:20 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ int main(int argc, char **argv)
 		ft_putstr_fd("Error: Wrong number of arguments\n", 2);
 		exit(2);
 	}
-	file_type(argv[1]);
     data = (t_data *)malloc(sizeof(t_data));
 	init_data(data, &(data->st_mlx));
-    copy_file(&data, argv[1]);
+	file_type(argv[1], data);
+/*  copy_file(&data, argv[1]);
     read_file(&data, argv[1]);
     if (check_walls(data))
         ft_error(&data);
-    init_window(data, data->st_mlx);
+    init_window(data, data->st_mlx); */
     return (0);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:31:28 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/05 12:31:31 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/07 10:18:28 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	file_type(char *file)
+/* void	file_type(char *file)
 {
 	char	*temp;
 	int		fd;
@@ -31,7 +31,7 @@ void	file_type(char *file)
 		exit(2);
 	}
 	close(fd);
-}
+} */
 
 /* int	check_file(t_data *data)
 {

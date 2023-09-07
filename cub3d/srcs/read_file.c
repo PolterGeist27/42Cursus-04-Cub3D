@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:21:50 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/05 12:31:00 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/07 15:58:34 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	read_file(t_data **data, char *file_name)
 		ft_error(data);
 }
 
-void	copy_file(t_data **data, char *file_name)
+/* void	copy_file(t_data **data, char *file_name)
 {
 	char	*line;
 	int		fd;
@@ -102,7 +102,7 @@ void	copy_file(t_data **data, char *file_name)
 		line = get_next_line(fd);
 	}
 	close(fd);
-}
+} */
 
 /* int	find_map(t_data *data)
 {
