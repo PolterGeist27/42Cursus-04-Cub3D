@@ -6,9 +6,13 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 09:48:13 by pealexan          #+#    #+#             */
-/*   Updated: 2023/09/07 16:53:14 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:56:26 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* This validates and saves texture elements in the data structures.
+	It also copies the map part to its corresponding matrix.
+	Now need to parse map for validation and make sure texture elements are well parsed */
 
 #include "../includes/cub3d.h"
 
