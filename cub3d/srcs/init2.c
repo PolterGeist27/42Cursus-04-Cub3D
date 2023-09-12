@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:49:52 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/12 12:38:19 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/12 12:49:43 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@ void    init_mlx(t_data *data, t_mlx **st_mlx)
 
 void	init_window(t_data *data, t_mlx *mlx)
 {
-	//draw_map2D(data, data->st_mlx);
+	init_mlx(data, &(data->st_mlx));
 	draw_celling_floor(data, data->st_mlx);
     mlx_hook(mlx->mlx_win, 17, 0, ft_close, data);
     mlx_hook(mlx->mlx_win, KeyPress, KeyPressMask, check_keys, data);
     mlx_loop(mlx->mlx);
-    //ft_close(data, data->st_mlx);
 }
