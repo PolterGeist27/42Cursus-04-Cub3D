@@ -6,7 +6,7 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:57:25 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/07 14:25:38 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:06:59 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	init_data(t_data *data, t_mlx **st_mlx)
 	data->map_w = 0;
 	data->file = NULL;
 	data->file_h = 0;
+	data->element_no = 0;
 	data->textures = (t_textures *)malloc(sizeof(t_textures));
 	//add malloc protection function
 	data->textures->NO_path = NULL;
