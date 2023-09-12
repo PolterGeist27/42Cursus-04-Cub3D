@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:49:52 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/12 12:05:56 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/12 12:38:19 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void	init_window(t_data *data, t_mlx *mlx)
     mlx_hook(mlx->mlx_win, 17, 0, ft_close, data);
     mlx_hook(mlx->mlx_win, KeyPress, KeyPressMask, check_keys, data);
     mlx_loop(mlx->mlx);
-    ft_close(data, data->st_mlx);
+    //ft_close(data, data->st_mlx);
 }

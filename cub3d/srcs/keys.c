@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:05:55 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/04 12:30:48 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/12 12:39:15 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	check_keys(int key, t_data *data)
 {
 	if (key == ESC)
-		ft_close(data, data->st_mlx);
+		ft_close(data);
 	else if (key == W)
 		printf("W\n");
 	else if (key == A)

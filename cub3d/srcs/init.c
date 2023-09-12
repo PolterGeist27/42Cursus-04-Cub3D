@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:57:25 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/12 12:20:56 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/12 12:38:55 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,11 @@ void	init_data(t_data *data, t_mlx **st_mlx)
 	init_mlx(data, st_mlx);
 }
 
-int	ft_close(t_data *data, t_mlx *st_mlx)
+int	ft_close(t_data *data)
 {
+	t_mlx *st_mlx;
+
+	st_mlx = data->st_mlx;
 	mlx_destroy_window(st_mlx->mlx, st_mlx->mlx_win);
 	mlx_destroy_image(st_mlx->mlx, st_mlx->img);
 	mlx_destroy_display(st_mlx->mlx);
@@ -66,10 +69,7 @@ void	free_data(t_data *data)
 	if (data->textures)
 		free_textures(data->textures);
 	if (data->file)
-	{
-		printf("in\n");
 		ft_free_split(data->file);
-	}
 	if (data->map)
 		ft_free_split(data->map);
 	free(data);

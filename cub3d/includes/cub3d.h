@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/12 12:11:18 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/12 12:39:09 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ typedef struct s_data {
 
 //      init.c          //
 void	init_data(t_data *data, t_mlx **st_mlx);
-int		ft_close(t_data *data, t_mlx *st_mlx);
+int		ft_close(t_data *data);
 void	ft_error(t_data **data);
 void	free_data(t_data *data);
 void	free_textures(t_textures *textures);

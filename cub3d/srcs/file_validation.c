@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   file_validation.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 09:48:13 by pealexan          #+#    #+#             */
-/*   Updated: 2023/09/12 12:17:46 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/12 12:34:28 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	start_mapping(t_data *data, int i)
 	while (data->file[i])
 	{
 		data->map[temp] = ft_strtrim(data->file[i], "\n");
-		data->file[i] = NULL;
+		//data->file[i] = NULL;
 		i++;
 		temp++;
 	}
