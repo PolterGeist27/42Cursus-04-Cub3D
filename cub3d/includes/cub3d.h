@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/12 14:59:18 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/12 15:25:31 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ typedef struct s_data {
 
 
 //      init.c          //
-void	init_data(t_data *data, t_mlx **st_mlx);
+void	init_data(t_data *data);
 int		ft_close(t_data *data);
 void	ft_error(t_data **data);
 void	free_data(t_data *data);
