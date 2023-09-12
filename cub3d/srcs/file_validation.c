@@ -6,7 +6,7 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 09:48:13 by pealexan          #+#    #+#             */
-/*   Updated: 2023/09/12 11:47:20 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/12 12:17:46 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	start_mapping(t_data *data, int i)
 	temp = 0;
 	while (data->file[i])
 	{
-		data->map[temp] = ft_strdup(data->file[i]);
+		data->map[temp] = ft_strtrim(data->file[i], "\n");
 		data->file[i] = NULL;
 		i++;
 		temp++;
@@ -77,11 +77,11 @@ void	start_mapping(t_data *data, int i)
 	temp = 0;
 	while (data->map[temp])
 	{
-		ft_printf("%s", data->map[temp]);
+		ft_printf("%s\n", data->map[temp]);
 		temp++;
 	}
 		
-	//map_validation(data);
+	map_validation(data);
 }
 
 void	file_elements(t_data *data)
