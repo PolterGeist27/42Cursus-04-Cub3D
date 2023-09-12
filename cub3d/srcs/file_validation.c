@@ -6,7 +6,7 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 09:48:13 by pealexan          #+#    #+#             */
-/*   Updated: 2023/09/12 12:44:21 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/12 16:56:25 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	clean_structs(t_data *data, char *error, char **split, int i)
 		ft_free_split(split);
 	if (data->file)
 		ft_free_split(data->file);
+	if (data->map)
+		ft_free_split(data->map);
 	free(data->player);
 	if (data->textures->C_colour)
 		free(data->textures->C_colour);
@@ -68,18 +70,22 @@ void	start_mapping(t_data *data, int i)
 	temp = 0;
 	while (data->file[i])
 	{
-		data->map[temp] = ft_strtrim(data->file[i], "\n");
+		if (data->file[i][0] == '\n')
+			data->map[temp] = ft_strdup("$");
+		else
+			data->map[temp] = ft_strtrim(data->file[i], "\n");
 		i++;
 		temp++;
 	}
-	data->map[temp] = 0;
-	temp = 0;
-	while (data->map[temp])
+	data->map[temp] = NULL;
+	while (data->map[data->map_h - 1][0] == '$')
 	{
-		ft_printf("%s\n", data->map[temp]);
-		temp++;
+		free(data->map[data->map_h - 1]);
+		data->map[data->map_h - 1] = NULL;
+		data->map_h--;
 	}
-		
+	data->map[data->map_h] = NULL;
+	//clean_structs(data, 0, 0, 1);
 	map_validation(data);
 }
 

@@ -6,7 +6,7 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:27:56 by pealexan          #+#    #+#             */
-/*   Updated: 2023/09/12 15:01:24 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/12 16:57:03 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,30 @@ void	map_padding(t_data *data)
 	int		y;
 	int		x;
 
-	y = -1;
-	x = 0;
+	y = 0;
 	padded = (char **)malloc(sizeof(char *) * (data->map_h + 1));
-	while (data->map[++y])
+	while (data->map[y])
 	{
 		x = 0;
 		padded[y] = (char *)malloc(sizeof(char) * (data->map_w + 1));
-		while (x < data->map_w)
+		while (x < data->map_w - 1)
 		{
-			if (!data->map[y][x] || ft_isspace(data->map[y][x]))
+			if (!data->map[y][x])
+				padded[y][x] = 64;
+			else if (data->map[y][x] && ft_isspace(data->map[y][x]))
 				padded[y][x] = 64;
 			else
 				padded[y][x] = data->map[y][x];
 			x++;
 		}
-		padded[y][x] = 0;
+		padded[y][x] = '\0';
+		y++;
 	}
 	padded[y] = NULL;
 	y = -1;
 	while (padded[++y])
 		ft_printf("%s\n", padded[y]);
+	clean_structs(data, 0, padded, 1);
 }
 
 int	map_element(char *map)
@@ -88,10 +91,10 @@ void	map_width(t_data *data)
 	i = 0;
 	while (data->map[i])
 	{
-		if (!ft_strlen(data->map[i]))
-			clean_structs(data, "Error\nDivided map detected\n", 0, 1);
 		if (ft_strlen(data->map[i]) > (size_t)data->map_w)
 			data->map_w = ft_strlen(data->map[i]);
+		if (data->map[i][0] == '$')
+			clean_structs(data, "Error\nDivided map detected\n", 0, 1);
 		if (!map_element(data->map[i]))
 			clean_structs(data, "Error\nInvalid map element detected\n", 0, 1);
 		i++;
