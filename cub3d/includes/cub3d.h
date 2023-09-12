@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/12 12:39:09 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/12 14:59:18 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,38 @@ typedef struct s_textures
 
 typedef struct s_player
 {
-	double	x;
-	double	y;
+	// player position
+	double	pos_x;
+	double	pos_y;
 
-	double		dirX;
-	double		dirY;
+	// direction vector
+	double	dir_x;
+	double	dir_y;
 
-	double planeX;
-	double planeY;
+	//	Plane vector
+	double	plane_x;
+	double	plane_y;
+
+	double	camera_x;
+	double	raydir_x;
+	double	raydir_y;
+
+	// Current map coordinates
+	int		map_x;
+	int		map_y;
+
+	// which direction to step into, either +1 or -1
+	int		step_x;
+	int		step_y;
+
+	// Length of ray from current position to next x or y-side
+	double	side_dist_x;
+	double	side_dist_y;
+
+	// Length of ray from one x or y-side to next x or y-side
+	double	delta_dist_x;
+	double	delta_dist_y;
+
 }	t_player;
 
 typedef struct s_mlx {
@@ -146,7 +170,10 @@ void	my_mlx_pixel_put(t_mlx *st_mlx, int x, int y, int color);
 void	draw_map2D(t_data *data, t_mlx *st_mlx);
 void	draw_celling_floor(t_data *data, t_mlx *st_mlx);
 
-
+//		raycasting.c	//
+void	raycasting(t_data *data, t_player *player);
+void	get_values(t_data *data, t_player *player, int x);
+void	get_step(t_data *data, t_player *player);
 
 void	file_type(char *file, t_data *data);
 void	file_elements(t_data *data);

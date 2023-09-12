@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:57:25 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/12 12:38:55 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/12 14:11:56 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	init_data(t_data *data, t_mlx **st_mlx)
 	data->textures->F_colour = NULL;
 	data->player = (t_player *)malloc(sizeof(t_player));
 	//add malloc protection function
-	data->player->planeX = 0;
-	data->player->planeY = 1;
+	data->player->plane_x = 0;
+	data->player->plane_y = 1;
     // Minilibx
 	init_mlx(data, st_mlx);
 }
