@@ -6,18 +6,18 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:27:56 by pealexan          #+#    #+#             */
-/*   Updated: 2023/09/12 12:45:04 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/12 12:59:13 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-/* void	map_padding(t_data *data)
+void	map_padding(t_data *data)
 {
 	char	**temp;
 
 	
-} */
+}
 
 int	map_element(char *map)
 {
