@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/12 11:36:37 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/12 12:11:18 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,10 @@ void	init_data(t_data *data, t_mlx **st_mlx);
 int		ft_close(t_data *data, t_mlx *st_mlx);
 void	ft_error(t_data **data);
 void	free_data(t_data *data);
+void	free_textures(t_textures *textures);
+
+//		init2.c			//
+void    init_mlx(t_data *data, t_mlx **st_mlx);
 void	init_window(t_data *data, t_mlx *mlx);
 
 //      keys.c          //

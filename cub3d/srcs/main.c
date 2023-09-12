@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:48:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/07 16:01:20 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/12 12:18:34 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main(int argc, char **argv)
 /*  copy_file(&data, argv[1]);
     read_file(&data, argv[1]);
     if (check_walls(data))
-        ft_error(&data);
-    init_window(data, data->st_mlx); */
+        ft_error(&data); */
+    init_window(data, data->st_mlx);
     return (0);
 }
