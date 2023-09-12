@@ -6,7 +6,7 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 09:48:13 by pealexan          #+#    #+#             */
-/*   Updated: 2023/09/12 11:23:26 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:47:20 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,15 @@ void	start_mapping(t_data *data, int i)
 		i++;
 		temp++;
 	}
+	data->map[temp] = 0;
 	temp = 0;
 	while (data->map[temp])
-		ft_printf("%s", data->map[temp++]);
+	{
+		ft_printf("%s", data->map[temp]);
+		temp++;
+	}
+		
+	//map_validation(data);
 }
 
 void	file_elements(t_data *data)

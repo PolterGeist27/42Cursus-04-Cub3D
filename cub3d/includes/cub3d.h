@@ -6,7 +6,7 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/12 11:25:10 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:36:37 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,8 @@ void	clean_structs(t_data *data, char *error, char **split, int i);
 void	copy_file(t_data *data, char *file);
 void	start_mapping(t_data *data, int i);
 int		is_map(t_data *data, int i, int element_no);
+void	map_validation(t_data *data);
+
 
 
 #endif
