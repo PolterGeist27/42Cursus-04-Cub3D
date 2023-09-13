@@ -6,7 +6,7 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:27:56 by pealexan          #+#    #+#             */
-/*   Updated: 2023/09/13 12:50:51 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:17:29 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,5 +125,5 @@ void	map_validation(t_data *data)
 	map_copy(data, padded);
 	if (flood_fill(data, padded, 1, 1))
 		clean_structs(data, "Error\nMap is not surrounded\n", padded, 1);
-	clean_structs(data, 0, padded, 1);
+	ft_free_split(padded);
 }
