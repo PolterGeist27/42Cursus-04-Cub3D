@@ -6,7 +6,7 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 09:48:13 by pealexan          #+#    #+#             */
-/*   Updated: 2023/09/12 16:56:25 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/13 12:53:14 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,21 +71,20 @@ void	start_mapping(t_data *data, int i)
 	while (data->file[i])
 	{
 		if (data->file[i][0] == '\n')
-			data->map[temp] = ft_strdup("$");
+			data->map[temp] = ft_strdup("\n");
 		else
 			data->map[temp] = ft_strtrim(data->file[i], "\n");
 		i++;
 		temp++;
 	}
 	data->map[temp] = NULL;
-	while (data->map[data->map_h - 1][0] == '$')
+	while (data->map[data->map_h - 1][0] == '\n')
 	{
 		free(data->map[data->map_h - 1]);
 		data->map[data->map_h - 1] = NULL;
 		data->map_h--;
 	}
 	data->map[data->map_h] = NULL;
-	//clean_structs(data, 0, 0, 1);
 	map_validation(data);
 }
 
@@ -104,8 +103,6 @@ void	file_elements(t_data *data)
 			start_mapping(data, i);
 			break ;
 		}
-		else if (!data->file[i])
-			clean_structs(data, "Error\nNo map detected\n", 0, 1);
 		check = ft_split(data->file[i], ' ');
 		if (valid_element(check[0]))
 		{
@@ -116,6 +113,8 @@ void	file_elements(t_data *data)
 			clean_structs(data, "Error\nWrong identifier detected\n", check, 1);
 		ft_free_split(check);
 	}
+	if (!data->file[i])
+		clean_structs(data, "Error\nNo map detected\n", 0, 1);
 }
 
 void	file_type(char *file, t_data *data)
