@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 12:04:17 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/18 12:17:27 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/18 12:40:13 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	get_values(t_data *data, t_player *player, int x)
 	player->camera_x = 2 * x / (double)data->st_mlx->img_w - 1;
 	player->raydir_x = player->dir_x + player->plane_x *player->camera_x;
 	player->raydir_y = player->dir_y + player->plane_y *player->camera_x;
-	player->map_x = (int)player->pos_x;
-	player->map_y = (int)player->pos_y;
+	player->map_x = floor(player->pos_x);
+	player->map_y = floor(player->pos_y);
 	if (player->raydir_x == 0)
 		player->delta_dist_x = 1e30; // to avoid dividing by 0 we set it to a really big number
 	else
@@ -101,7 +101,10 @@ void	perform_dda(t_data *data, t_player *player)
 	int h;
 
 	h = data->st_mlx->img_h;
-	player->line_height = (int)(h / player->wall_dist);
+	if (player->wall_dist)
+		player->line_height = (int)(h / player->wall_dist);
+	else
+		player->line_height = h;
 	player->draw_start = -player->line_height / 2 + h / 2;
 	if (player->draw_start < 0)
 		player->draw_start = 0;

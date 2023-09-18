@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/18 11:44:03 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/18 12:25:15 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ typedef struct s_player
 	//	Plane vector
 	double	plane_x;
 	double	plane_y;
+
+	double	fov;
 
 	double	camera_x;
 	double	raydir_x;

@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:37:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/18 11:45:05 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/18 12:47:36 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	get_player_data(t_data *data)
 		y = 0;
 		while (y < data->map_h)
 		{
-			if (!ft_strchr("NSEW", data->map[x][y]))
+			if (ft_strchr("NSEW", data->map[y][x]))
 			{
 				data->player->pos_x = x;
 				data->player->pos_y = y;
@@ -100,24 +100,32 @@ void	get_player_data(t_data *data)
 
 void	get_player_dir(t_data *data, int x, int y)
 {
-	if (data->map[x][y] == 'N')
+	if (data->map[y][x] == 'N')
 	{
 		data->player->dir_x = 0;
 		data->player->dir_y = -1;
+		data->player->plane_x = 1;
+		data->player->plane_y = 0;
 	}
-	else if (data->map[x][y] == 'S')
+	else if (data->map[y][x] == 'S')
 	{
 		data->player->dir_x = 0;
 		data->player->dir_y = 1;
+		data->player->plane_x = -1;
+		data->player->plane_y = 0;
 	}
-	else if (data->map[x][y] == 'E')
+	else if (data->map[y][x] == 'E')
 	{
 		data->player->dir_x = 1;
 		data->player->dir_y = 0;
+		data->player->plane_x = 0;
+		data->player->plane_y = -1;
 	}
-	else if (data->map[x][y] == 'W')
+	else if (data->map[y][x] == 'W')
 	{
 		data->player->dir_x = -1;
 		data->player->dir_y = 0;
+		data->player->plane_x = 0;
+		data->player->plane_y = 1;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:48:07 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/18 11:13:06 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/18 12:45:30 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,14 @@ void	draw_vertical_line(t_data *data, int x, int color) // eventually swap color
 {
 	int y;
 
+	(void)color;
 	y = data->player->draw_start;
 	while (y < data->player->draw_end)
 	{
-		my_mlx_pixel_put(data->st_mlx, x, y, color);
+		if (data->player->side == 1)
+			my_mlx_pixel_put(data->st_mlx, x, y, 0xFF0000);
+		else
+			my_mlx_pixel_put(data->st_mlx, x, y, 0xFFF000);
 		y++;
 	}
 }
