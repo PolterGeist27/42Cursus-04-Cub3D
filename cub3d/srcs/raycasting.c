@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 12:04:17 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/18 12:52:39 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:39:19 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	get_step(t_player *player)
 	else
 	{
 		player->step_x = 1;
-		player->side_dist_x = (player->map_x + 1 - player->pos_x) * player->delta_dist_x;
+		player->side_dist_x = (player->map_x + 1.0 - player->pos_x) * player->delta_dist_x;
 	}
 	if (player->raydir_y < 0)
 	{
@@ -68,7 +68,7 @@ void	get_step(t_player *player)
 	else
 	{
 		player->step_y = 1;
-		player->side_dist_y = (player->map_y + 1 - player->pos_y) * player->delta_dist_y;
+		player->side_dist_y = (player->map_y + 1.0 - player->pos_y) * player->delta_dist_y;
 	}
 }
 

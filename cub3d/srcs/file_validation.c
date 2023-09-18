@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   file_validation.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 09:48:13 by pealexan          #+#    #+#             */
-/*   Updated: 2023/09/13 12:53:14 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:53:21 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,8 +123,8 @@ void	file_type(char *file, t_data *data)
 	int		fd;
 
 	fd = 0;
-	temp = ft_strrchr(file, '.');
-	if (ft_strlen(temp) != 4 || ft_strncmp(temp, ".cub", 4))
+	temp = ft_strrchr(file, '.');	
+	if (!temp || ft_strlen(temp) != 4 || ft_strncmp(temp, ".cub", 4))
 		clean_structs(data, "Error\nInvalid file type\n", 0, 1);
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
