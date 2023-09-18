@@ -6,11 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/09/12 15:25:31 by diogmart         ###   ########.fr       */
-=======
-/*   Updated: 2023/09/13 12:50:23 by pealexan         ###   ########.fr       */
->>>>>>> 58833fb0f6b127d7f68dcf846b6566def336f100
+/*   Updated: 2023/09/18 11:44:03 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +85,15 @@ typedef struct s_player
 	double	delta_dist_x;
 	double	delta_dist_y;
 
+	int		hit;
+	int		side;
+
+	double	wall_dist;
+	int		line_height;
+
+	int		draw_start;
+	int		draw_end;
+
 }	t_player;
 
 typedef struct s_mlx {
@@ -144,7 +149,7 @@ void	free_textures(t_textures *textures);
 
 //		init2.c			//
 void    init_mlx(t_data *data, t_mlx **st_mlx);
-void	init_window(t_data *data, t_mlx *mlx);
+void	init_window(t_data *data);
 
 //      keys.c          //
 int		check_keys(int key, t_data *data);
@@ -160,6 +165,8 @@ void	read_file(t_data **data, char *file_name);
 int		ft_ccount(char *str);
 char	*ft_remove_spaces(char *str);
 int		is_line_c(char *line, char c);
+void	get_player_data(t_data *data);
+void	get_player_dir(t_data *data, int x, int y);
 
 //		validate.c		//
 //void	file_type(char *file);
@@ -174,11 +181,14 @@ int		check_limits(t_data *data, int x, int y);
 void	my_mlx_pixel_put(t_mlx *st_mlx, int x, int y, int color);
 void	draw_map2D(t_data *data, t_mlx *st_mlx);
 void	draw_celling_floor(t_data *data, t_mlx *st_mlx);
+void	draw_vertical_line(t_data *data, int x, int color);
 
 //		raycasting.c	//
-void	raycasting(t_data *data, t_player *player);
+void	raycasting(t_data *data, t_mlx *st_mlx);
 void	get_values(t_data *data, t_player *player, int x);
-void	get_step(t_data *data, t_player *player);
+void	get_step(t_player *player);
+void	get_wall_dist(t_data *data, t_player *player);
+void	perform_dda(t_data *data, t_player *player);
 
 void	file_type(char *file, t_data *data);
 void	file_elements(t_data *data);

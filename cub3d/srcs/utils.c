@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:37:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/05 14:26:37 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/18 11:45:05 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,3 +73,51 @@ int	is_line_c(char *line, char c)
 
 	r * 0x010000 + g * 0x000100 + b
 */
+
+void	get_player_data(t_data *data)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	while (x < data->map_w)
+	{
+		y = 0;
+		while (y < data->map_h)
+		{
+			if (!ft_strchr("NSEW", data->map[x][y]))
+			{
+				data->player->pos_x = x;
+				data->player->pos_y = y;
+				get_player_dir(data, x, y);
+				return ;
+			}
+			y++;
+		}
+		x++;
+	}
+}
+
+void	get_player_dir(t_data *data, int x, int y)
+{
+	if (data->map[x][y] == 'N')
+	{
+		data->player->dir_x = 0;
+		data->player->dir_y = -1;
+	}
+	else if (data->map[x][y] == 'S')
+	{
+		data->player->dir_x = 0;
+		data->player->dir_y = 1;
+	}
+	else if (data->map[x][y] == 'E')
+	{
+		data->player->dir_x = 1;
+		data->player->dir_y = 0;
+	}
+	else if (data->map[x][y] == 'W')
+	{
+		data->player->dir_x = -1;
+		data->player->dir_y = 0;
+	}
+}

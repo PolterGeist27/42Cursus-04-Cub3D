@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:48:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/12 12:49:19 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/18 12:21:09 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,11 @@
 
 /*
 TODO:
-    - Completly change the way we read the file to manage a way to read textures;
-    - Add a way to read textures from the map files and
-    change the map checks so that the program works with the texture indicators;
+    - Finish raytracing
     - Textures;
-    - Create a player;
     - Add movement;
-    - Raytracing;
     ...
     - Norm;
-
-Known issues:
-    - Valgrind seems to complain about padding ? need more research to
-    find the source of the errror (the error is supressed, use "valgrind -s");
 */
 
 int main(int argc, char **argv)
@@ -41,10 +33,11 @@ int main(int argc, char **argv)
     data = (t_data *)malloc(sizeof(t_data));
 	init_data(data);
 	file_type(argv[1], data);
+    get_player_data(data);
 /*  copy_file(&data, argv[1]);
     read_file(&data, argv[1]);
     if (check_walls(data))
         ft_error(&data); */
-    //init_window(data, data->st_mlx);
+    init_window(data);
     return (0);
 }

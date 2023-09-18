@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:48:07 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/06 11:32:45 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/18 11:13:06 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,16 @@ void	draw_celling_floor(t_data *data, t_mlx *st_mlx)
 		x++;
 	}
 	mlx_put_image_to_window(st_mlx->mlx, st_mlx->mlx_win, st_mlx->img, 0, 0);
+}
+
+void	draw_vertical_line(t_data *data, int x, int color) // eventually swap color with texture ?
+{
+	int y;
+
+	y = data->player->draw_start;
+	while (y < data->player->draw_end)
+	{
+		my_mlx_pixel_put(data->st_mlx, x, y, color);
+		y++;
+	}
 }

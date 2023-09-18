@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:57:25 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/18 10:13:39 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/18 11:25:54 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	init_data(t_data *data)
 	data->player->plane_x = 0;
 	data->player->plane_y = 1;
     // Minilibx
-	init_mlx(data, data->st_mlx);
+	//init_mlx(data, &data->st_mlx);
 }
 
 int	ft_close(t_data *data)
