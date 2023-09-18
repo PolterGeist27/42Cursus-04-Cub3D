@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 12:04:17 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/18 13:39:19 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:58:26 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	raycasting(t_data *data, t_mlx *st_mlx)
 	x = 0;
 	while (x < data->st_mlx->img_w)
 	{
+	/* 	printf("x: %f\n", data->player->pos_x);
+		printf("y: %f\n", data->player->pos_y); */
 		get_values(data, data->player, x);
 		get_step(data->player);
 		get_wall_dist(data, data->player);

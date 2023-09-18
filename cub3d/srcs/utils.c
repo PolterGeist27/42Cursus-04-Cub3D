@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:37:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/18 12:47:36 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:59:43 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,13 @@ void	get_player_data(t_data *data)
 		y = 0;
 		while (y < data->map_h)
 		{
-			if (ft_strchr("NSEW", data->map[y][x]))
+			if (ft_strchr("NSEW", data->map[y][x]) && data->map[y][x] != '\0')
 			{
 				data->player->pos_x = x;
 				data->player->pos_y = y;
+				printf("char: %c\n", data->map[y][x]);
+				printf("x: %f\n", data->player->pos_x);
+				printf("y: %f\n", data->player->pos_y);
 				get_player_dir(data, x, y);
 				return ;
 			}
