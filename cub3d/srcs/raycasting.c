@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 12:04:17 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/18 12:40:13 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/18 12:52:39 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	get_values(t_data *data, t_player *player, int x)
 	else
 		player->delta_dist_y = fabs(1 / player->raydir_y);
 	player->hit = 0;
+	player->side = 0;
 }
 
 void	get_step(t_player *player)
@@ -87,7 +88,7 @@ void	get_wall_dist(t_data *data, t_player *player)
 			player->map_y += player->step_y;
 			player->side = 1;
 		}
-		if (data->map[player->map_x][player->map_y] == '1')
+		if (data->map[player->map_y][player->map_x] == '1')
 			player->hit = 1;
 	}
 	if (player->side == 0)
