@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 12:04:17 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/18 13:58:26 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/18 14:32:29 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	raycasting(t_data *data, t_mlx *st_mlx)
 	x = 0;
 	while (x < data->st_mlx->img_w)
 	{
-	/* 	printf("x: %f\n", data->player->pos_x);
-		printf("y: %f\n", data->player->pos_y); */
 		get_values(data, data->player, x);
 		get_step(data->player);
 		get_wall_dist(data, data->player);
@@ -34,8 +32,8 @@ void	raycasting(t_data *data, t_mlx *st_mlx)
 void	get_values(t_data *data, t_player *player, int x)
 {
 	player->camera_x = 2 * x / (double)data->st_mlx->img_w - 1;
-	player->raydir_x = player->dir_x + player->plane_x *player->camera_x;
-	player->raydir_y = player->dir_y + player->plane_y *player->camera_x;
+	player->raydir_x = player->dir_x + player->plane_x * player->camera_x;
+	player->raydir_y = player->dir_y + player->plane_y * player->camera_x;
 	player->map_x = floor(player->pos_x);
 	player->map_y = floor(player->pos_y);
 	if (player->raydir_x == 0)
