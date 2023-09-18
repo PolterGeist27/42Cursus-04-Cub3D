@@ -6,7 +6,11 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/09/12 15:25:31 by diogmart         ###   ########.fr       */
+=======
+/*   Updated: 2023/09/13 12:50:23 by pealexan         ###   ########.fr       */
+>>>>>>> 58833fb0f6b127d7f68dcf846b6566def336f100
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +39,7 @@
 # define RIGHT 65363
 
 # define ALLOWED_CHARS "01NSEW"
+# define FFILL "0NSEW"
 
 typedef struct s_textures
 {
@@ -185,6 +190,7 @@ void	copy_file(t_data *data, char *file);
 void	start_mapping(t_data *data, int i);
 int		is_map(t_data *data, int i, int element_no);
 void	map_validation(t_data *data);
+int		flood_fill(t_data *data, char **map, int x, int y);
 
 
 
