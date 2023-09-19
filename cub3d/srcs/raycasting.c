@@ -6,18 +6,20 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 12:04:17 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/19 11:36:53 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/19 15:22:19 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	raycasting(t_data *data, t_mlx *st_mlx)
+int	raycasting(t_data *data)
 {
 	int		x;
-
+	t_mlx *st_mlx;
+	
 	x = 0;
-	while (x < data->st_mlx->img_w)
+	st_mlx = data->st_mlx;
+	while (x < st_mlx->img_w)
 	{
 		get_values(data, data->player, x);
 		get_step(data->player);
@@ -27,6 +29,7 @@ void	raycasting(t_data *data, t_mlx *st_mlx)
 		x++;
 	}
 	mlx_put_image_to_window(st_mlx->mlx, st_mlx->mlx_win, st_mlx->img, 0, 0);
+	return (0);
 }
 
 void	get_values(t_data *data, t_player *player, int x)

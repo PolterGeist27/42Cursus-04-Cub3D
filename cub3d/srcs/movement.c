@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 11:15:03 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/19 11:32:44 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:22:11 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,16 @@ void    move_vertical(t_data *data, t_player *player, int dir)
 {
     if (dir == 1)
     {
+		printf("x: %f\n", player->pos_x);
+		printf("y: %f\n", player->pos_y);
         if (data->map[(int)player->pos_y]
                 [(int)(player->pos_x + player->dir_x * 0.2)]== '0')
             player->pos_x += player->dir_x * 0.2;
         if (data->map[(int)(player->pos_y + player->dir_y * 0.2)]
                 [(int)player->pos_x] == '0')
             player->pos_y += player->dir_y * 0.2;
+		printf("x: %f\n", player->pos_x);
+        printf("y: %f\n", player->pos_y);
     }
     else
     {
@@ -34,6 +38,27 @@ void    move_vertical(t_data *data, t_player *player, int dir)
     }
 }
 
-void    move_horizontal(t_data *data, t_player *player, int dir);
+void    move_horizontal(t_data *data, t_player *player, int dir)
+{
+	if (dir == 1)
+    {
+        if (data->map[(int)player->pos_y]
+                [(int)(player->pos_x + player->dir_y * 0.2)]== '0')
+            player->pos_x += player->dir_y * 0.2;
+        if (data->map[(int)(player->pos_y + player->dir_x * 0.2)]
+                [(int)player->pos_x] == '0')
+            player->pos_y += player->dir_x * 0.2;
+    }
+    else
+    {
+        if (data->map[(int)player->pos_y]
+                [(int)(player->pos_x - player->dir_y * 0.2)]== '0')
+            player->pos_x -= player->dir_y * 0.2;
+        if (data->map[(int)(player->pos_y - player->dir_x * 0.2)]
+                [(int)player->pos_x] == '0')
+            player->pos_y -= player->dir_x * 0.2;
+    }
+}
+
 void    check_wall_hit();
 

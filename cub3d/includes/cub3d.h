@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/19 11:32:03 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/19 15:29:51 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,14 @@ typedef struct s_player
 	int		draw_start;
 	int		draw_end;
 
+	int		up;
+	int		down;
+	int		left;
+	int		right;
+
+	// Rotate clockwise & counterclockwise
+	int		rotCW;
+	int		rotCCW;
 }	t_player;
 
 typedef struct s_mlx {
@@ -186,7 +194,7 @@ void	draw_celling_floor(t_data *data, t_mlx *st_mlx);
 void	draw_vertical_line(t_data *data, int x, int color);
 
 //		raycasting.c	//
-void	raycasting(t_data *data, t_mlx *st_mlx);
+int		raycasting(t_data *data);
 void	get_values(t_data *data, t_player *player, int x);
 void	get_step(t_player *player);
 void	get_wall_dist(t_data *data, t_player *player);
@@ -194,6 +202,11 @@ void	perform_dda(t_data *data, t_player *player);
 
 //		movement.c		//
 void    move_vertical(t_data *data, t_player *player, int dir);
+void    move_horizontal(t_data *data, t_player *player, int dir);
+
+//		loop.c			//
+int 	raycasting_loop(t_data *data);
+
 
 void	file_type(char *file, t_data *data);
 void	file_elements(t_data *data);
