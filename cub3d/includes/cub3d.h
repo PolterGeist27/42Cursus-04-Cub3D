@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/18 12:25:15 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/19 11:32:03 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,7 +166,7 @@ void	read_file(t_data **data, char *file_name);
 //		utils.c			//
 int		ft_ccount(char *str);
 char	*ft_remove_spaces(char *str);
-int		is_line_c(char *line, char c);
+int		rgb_to_hex(char *rgb);
 void	get_player_data(t_data *data);
 void	get_player_dir(t_data *data, int x, int y);
 
@@ -191,6 +191,9 @@ void	get_values(t_data *data, t_player *player, int x);
 void	get_step(t_player *player);
 void	get_wall_dist(t_data *data, t_player *player);
 void	perform_dda(t_data *data, t_player *player);
+
+//		movement.c		//
+void    move_vertical(t_data *data, t_player *player, int dir);
 
 void	file_type(char *file, t_data *data);
 void	file_elements(t_data *data);

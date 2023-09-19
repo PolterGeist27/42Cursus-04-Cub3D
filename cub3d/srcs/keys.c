@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:05:55 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/12 12:39:15 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/19 11:40:49 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int	check_keys(int key, t_data *data)
 	if (key == ESC)
 		ft_close(data);
 	else if (key == W)
-		printf("W\n");
+		move_vertical(data, data->player, 1);
 	else if (key == A)
 		printf("A\n");
 	else if (key == S)
-		printf("S\n");
+		move_vertical(data, data->player, -1);
 	else if (key == D)
 		printf("D\n");
 	else if (key == LEFT)
@@ -30,8 +30,11 @@ int	check_keys(int key, t_data *data)
 		printf("Right Arrow\n");
 	else
 		printf("%d\n", key);
-/* 	mlx_clear_window(data->mlx, data->mlx_win);
-	mlx_destroy_image(data->mlx, data->img);
-	data->img = mlx_new_image(data->mlx, data->img_w, data->img_h); */
+ 	mlx_clear_window(data->st_mlx->mlx, data->st_mlx->mlx_win);
+	mlx_destroy_image(data->st_mlx->mlx, data->st_mlx->img);
+	data->st_mlx->img = mlx_new_image(data->st_mlx->mlx,
+			data->st_mlx->img_w, data->st_mlx->img_h);
+	//draw_celling_floor(data, data->st_mlx); Still need to draw celling and floor					(!)
+	raycasting(data, data->st_mlx);
 	return (0);
 }

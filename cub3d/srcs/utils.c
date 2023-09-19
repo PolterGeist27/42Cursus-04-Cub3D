@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:37:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/18 14:16:46 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/19 10:15:41 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,28 +51,29 @@ char	*ft_remove_spaces(char *str)
 }
 
 /*
-	Check is a given line is only made up of a char "c" and spaces
-*/
-
-int	is_line_c(char *line, char c)
-{
-	int i;
-
-	i = 0;
-	while (line[i] != '\0')
-	{
-		if (line[i] != c && line[i] != ' ' && line[i] != '\n')
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-/*
 	to pass rgb to hex:
 
 	r * 0x010000 + g * 0x000100 + b
 */
+
+int	rgb_to_hex(char *rgb)
+{
+	int		result;
+	int 	red;
+	int		green;
+	int		blue;
+	char	**rgb_split;
+
+	if (!rgb)
+		return (0);
+	rgb_split = ft_split(rgb, ',');
+	red = ft_atoi(rgb_split[0]);
+	green = ft_atoi(rgb_split[1]);
+	blue = ft_atoi(rgb_split[2]);
+	result = (red * 0x010000) + (green * 0x000100) + blue;
+	ft_free_split(rgb_split);
+	return (result);
+}
 
 void	get_player_data(t_data *data)
 {
