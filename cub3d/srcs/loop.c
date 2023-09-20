@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:21:16 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/20 10:54:21 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:21:34 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int check_movement(t_data *data, t_player *player)
 	if (player->right)
 		move_horizontal(data, data->player, 1);
 	if (player->rotCW)
-		;
+		rotate_player(data, player, 1);
 	if (player->rotCCW)
-		;
+		rotate_player(data, player, -1);
 	if (player->up || player->down || player->left || player->right ||
 			player->rotCW || player->rotCCW)
 		return (1);

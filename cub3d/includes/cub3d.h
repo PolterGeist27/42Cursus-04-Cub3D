@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/20 11:25:02 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:21:10 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,6 +204,7 @@ void	perform_dda(t_data *data, t_player *player);
 //		movement.c		//
 void    move_vertical(t_data *data, t_player *player, int dir);
 void    move_horizontal(t_data *data, t_player *player, int dir);
+void	rotate_player(t_data *data, t_player *player, int dir);
 
 //		loop.c			//
 int 	raycasting_loop(t_data *data);
