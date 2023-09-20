@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:37:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/20 11:35:30 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:38:25 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	get_player_data(t_data *data)
 			if (ft_strchr("NSEW", data->map[y][x]) && data->map[y][x] != '\0')
 			{
 				data->player->pos_x = x + 0.5;
-				data->player->pos_y = y - 0.5;
+				data->player->pos_y = y + 0.5;
 				get_player_dir(data, x, y);
 				return ;
 			}

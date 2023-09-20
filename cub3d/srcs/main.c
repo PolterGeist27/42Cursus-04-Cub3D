@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:48:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/18 12:21:09 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:58:31 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 /*
 TODO:
-    - Finish raytracing
+    - Add verification for more than one player on the map;
     - Textures;
-    - Add movement;
     ...
     - Norm;
 */

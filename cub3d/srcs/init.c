@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:57:25 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/20 10:58:22 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:07:28 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	init_data(t_data *data)
 	data->player = (t_player *)malloc(sizeof(t_player));
 	//add malloc protection function
 	data->player->fov = 1;
+	data->player->map_x = 0;
+	data->player->map_y = 0;
     // Minilibx
 	//init_mlx(data, &data->st_mlx);
 }
