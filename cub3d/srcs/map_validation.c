@@ -6,7 +6,7 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:27:56 by pealexan          #+#    #+#             */
-/*   Updated: 2023/09/13 14:17:29 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:32:30 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	map_padding(t_data *data, char **padded)
 	padded[y] = NULL;
 }
 
-int	map_element(char *map)
+int	map_element(char *map, int *player)
 {
 	int	i;
 
@@ -78,6 +78,10 @@ int	map_element(char *map)
 	{
 		if (!ft_isspace(map[i]) && !ft_strchr(ALLOWED_CHARS, map[i]))
 			return (0);
+		if (ft_strchr("NSEW", map[i]) && *player <= 1)
+			*player += 1;
+		else if (ft_strchr("NSEW", map[i]) && *player > 1)
+			return (2);
 		i++;
 	}
 	return (1);
@@ -109,21 +113,26 @@ int	flood_fill(t_data *data, char **map, int x, int y)
 void	map_validation(t_data *data)
 {
 	int		i;
+	int		player;
 	char	**padded;
 
 	i = 0;
+	player = 0;
 	while (data->map[i])
 	{
 		if (ft_strlen(data->map[i]) > (size_t)data->map_w)
 			data->map_w = ft_strlen(data->map[i]);
-		if (!map_element(data->map[i]))
+		if (!map_element(data->map[i], &player))
 			clean_structs(data, "Error\nInvalid map element detected\n", 0, 1);
+		if (map_element(data->map[i], &player) == 2)
+			clean_structs(data, "Error\nDouble player detected\n", 0, 1);
 		i++;
 	}
+	if (player == 0)
+		clean_structs(data, "Error\nNo player detected\n", 0, 1);
 	padded = (char **)malloc(sizeof(char *) * (data->map_h + 5));
 	map_padding(data, padded);
 	map_copy(data, padded);
 	if (flood_fill(data, padded, 1, 1))
 		clean_structs(data, "Error\nMap is not surrounded\n", padded, 1);
-	ft_free_split(padded);
 }

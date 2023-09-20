@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:37:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/20 14:38:25 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:48:26 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,11 @@ void	get_player_data(t_data *data)
 	int	x;
 	int	y;
 
-	x = 0;
-	while (x < data->map_w)
+	y = 0;
+	while (data->map[y])
 	{
-		y = 0;
-		while (y < data->map_h)
+		x = 0;
+		while (data->map[y][x])
 		{
 			if (ft_strchr("NSEW", data->map[y][x]) && data->map[y][x] != '\0')
 			{
@@ -94,9 +94,9 @@ void	get_player_data(t_data *data)
 				get_player_dir(data, x, y);
 				return ;
 			}
-			y++;
+			x++;
 		}
-		x++;
+		y++;
 	}
 }
 

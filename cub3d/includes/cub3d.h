@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/20 12:21:10 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:48:12 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,7 +221,5 @@ void	start_mapping(t_data *data, int i);
 int		is_map(t_data *data, int i, int element_no);
 void	map_validation(t_data *data);
 int		flood_fill(t_data *data, char **map, int x, int y);
-
-
 
 #endif
