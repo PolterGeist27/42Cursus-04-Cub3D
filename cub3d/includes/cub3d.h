@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/19 15:29:51 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/20 10:22:09 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,7 @@ void	init_window(t_data *data);
 
 //      keys.c          //
 int		check_keys(int key, t_data *data);
+int		release_movement(int key, t_data *data);
 
 //		read_file.c		//
 int		get_width(char *file_name);

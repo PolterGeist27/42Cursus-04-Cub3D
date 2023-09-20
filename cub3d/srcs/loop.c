@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:21:16 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/19 15:30:37 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/20 10:36:00 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int check_movement(t_data *data, t_player *player)
 	if (player->up)
 		move_vertical(data, data->player, 1);
 	if (player->down)
-		move_vertical(data, data->player, -1);;
+		move_vertical(data, data->player, -1);
 	if (player->left)
-		;
+		move_horizontal(data, data->player, -1);
 	if (player->right)
-		;
+		move_horizontal(data, data->player, 1);
 	if (player->rotCW)
 		;
 	if (player->rotCCW)
@@ -34,10 +34,8 @@ int check_movement(t_data *data, t_player *player)
 
 int raycasting_loop(t_data *data)
 {
-    /*
-    if the player didnt move return 0
-    */
-    mlx_clear_window(data->st_mlx->mlx, data->st_mlx->mlx_win);
+	if (!check_movement(data, data->player))
+		return (0);
 	mlx_destroy_image(data->st_mlx->mlx, data->st_mlx->img);
 	data->st_mlx->img = mlx_new_image(data->st_mlx->mlx,
 			data->st_mlx->img_w, data->st_mlx->img_h);
