@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:57:25 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/18 14:30:07 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/20 10:58:22 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	init_data(t_data *data)
 	data->textures->SO_path = NULL;
 	data->textures->EA_path = NULL;
 	data->textures->WE_path = NULL;
-	data->textures->C_colour = NULL;
-	data->textures->F_colour = NULL;
+	data->textures->C_colour = 0;
+	data->textures->F_colour = 0;
 	data->player = (t_player *)malloc(sizeof(t_player));
 	//add malloc protection function
 	data->player->fov = 1;
@@ -80,7 +80,5 @@ void	free_textures(t_textures *textures)
 	free(textures->SO_path);
 	free(textures->EA_path);
 	free(textures->WE_path);
-	free(textures->C_colour);
-	free(textures->F_colour);
 	free(textures);
 }

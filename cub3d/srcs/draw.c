@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:48:07 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/19 10:16:09 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/20 10:57:38 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ void	draw_celling_floor(t_data *data, t_mlx *st_mlx)
 		y = 0;
 		while (y < st_mlx->img_h / 2)
 		{
-			my_mlx_pixel_put(st_mlx, x, y, rgb_to_hex(data->textures->C_colour));
+			my_mlx_pixel_put(st_mlx, x, y, data->textures->C_colour);
 			y++;
 		}
 		while (y < st_mlx->img_h)
 		{
-			my_mlx_pixel_put(st_mlx, x, y, rgb_to_hex(data->textures->F_colour));
+			my_mlx_pixel_put(st_mlx, x, y, data->textures->F_colour);
 			y++;
 		}
 		x++;

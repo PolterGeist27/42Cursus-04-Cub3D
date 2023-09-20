@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:49:52 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/20 10:19:57 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/20 11:56:14 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,5 @@ void	init_window(t_data *data)
 	mlx_loop_hook(data->st_mlx->mlx, raycasting_loop, data);
 	mlx_loop(data->st_mlx->mlx);
 }
+
+//void init_player();

@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 09:48:13 by pealexan          #+#    #+#             */
-/*   Updated: 2023/09/18 13:53:21 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/20 10:59:11 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@ void	clean_structs(t_data *data, char *error, char **split, int i)
 	if (data->map)
 		ft_free_split(data->map);
 	free(data->player);
-	if (data->textures->C_colour)
-		free(data->textures->C_colour);
-	if (data->textures->F_colour)
-		free(data->textures->F_colour);
 	if (data->textures->NO_path)
 		free(data->textures->NO_path);
 	if (data->textures->SO_path)
@@ -51,10 +47,10 @@ void	handle_elements(char **check, t_data *data)
 		data->textures->WE_path = ft_strtrim(check[1], "\n");
 	else if (!ft_strncmp(check[0], "EA", 2) && data->textures->EA_path == NULL)
 		data->textures->EA_path = ft_strtrim(check[1], "\n");
-	else if (!ft_strncmp(check[0], "C", 1) && data->textures->C_colour == NULL)
-		data->textures->C_colour = ft_strtrim(check[1], "\n");
-	else if (!ft_strncmp(check[0], "F", 1) && data->textures->F_colour == NULL)
-		data->textures->F_colour = ft_strtrim(check[1], "\n");
+	else if (!ft_strncmp(check[0], "C", 1) && data->textures->C_colour == 0)
+		data->textures->C_colour = rgb_to_hex(ft_strtrim(check[1], "\n"));
+	else if (!ft_strncmp(check[0], "F", 1) && data->textures->F_colour == 0)
+		data->textures->F_colour = rgb_to_hex(ft_strtrim(check[1], "\n"));
 	else
 		clean_structs(data, "Error\nDuplicate identifier detected\n", check, 1);
 }

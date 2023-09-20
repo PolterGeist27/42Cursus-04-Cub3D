@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:37:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/19 10:15:41 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/20 11:35:30 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int	rgb_to_hex(char *rgb)
 	blue = ft_atoi(rgb_split[2]);
 	result = (red * 0x010000) + (green * 0x000100) + blue;
 	ft_free_split(rgb_split);
+	free(rgb);
 	return (result);
 }
 
@@ -88,8 +89,8 @@ void	get_player_data(t_data *data)
 		{
 			if (ft_strchr("NSEW", data->map[y][x]) && data->map[y][x] != '\0')
 			{
-				data->player->pos_x = x;
-				data->player->pos_y = y;
+				data->player->pos_x = x + 0.5;
+				data->player->pos_y = y - 0.5;
 				get_player_dir(data, x, y);
 				return ;
 			}

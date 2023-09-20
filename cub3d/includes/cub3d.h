@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/20 10:22:09 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/20 11:25:02 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef struct s_textures
 	char	*SO_path;
 	char	*EA_path;
 	char	*WE_path;
-	char	*C_colour;
-	char	*F_colour;
+	int		C_colour;
+	int		F_colour;
 	void	*NO_img;
 	void	*SO_img;
 	void	*EA_img;
