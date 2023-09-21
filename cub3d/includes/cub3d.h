@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/20 16:48:12 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:54:53 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,7 @@ void	free_textures(t_textures *textures);
 //		init2.c			//
 void    init_mlx(t_data *data, t_mlx **st_mlx);
 void	init_window(t_data *data);
+void 	init_player(t_player *player);
 
 //      keys.c          //
 int		check_keys(int key, t_data *data);

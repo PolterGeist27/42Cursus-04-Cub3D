@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:49:52 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/20 16:37:27 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:55:30 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,15 @@ void	init_window(t_data *data)
 	mlx_loop(data->st_mlx->mlx);
 }
 
-/* void init_player()
+void init_player(t_player *player)
 {
-	
-} */
+	player->up = 0;
+	player->down = 0;
+	player->left = 0;
+	player->right = 0;
+	player->rotCW = 0;
+	player->rotCCW = 0;
+	player->fov = 1;
+	player->pos_x = 0;
+	player->pos_y = 0;
+}
