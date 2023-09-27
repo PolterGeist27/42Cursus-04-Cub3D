@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/21 13:54:53 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/27 15:11:50 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,36 @@
 # define ALLOWED_CHARS "01NSEW"
 # define FFILL "0NSEW"
 
+typedef struct s_image
+{
+	void	*img;
+	char	*addr;
+	int		height;
+	int		width;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+
+} t_image;
+
 typedef struct s_textures
 {
+	int		**tex;
+	float	tex_step;
+	float	tex_pos;
+	int		color;
+
 	char	*NO_path;
 	char	*SO_path;
 	char	*EA_path;
 	char	*WE_path;
 	int		C_colour;
 	int		F_colour;
-	void	*NO_img;
-	void	*SO_img;
-	void	*EA_img;
-	void	*WE_img;
+	t_image	*NO;
+	t_image	*SO;
+	t_image	*EA;
+	t_image	*WE;
+
 }	t_textures;
 
 typedef struct s_player
@@ -129,24 +147,11 @@ typedef struct s_data {
 	char		**file;
 	int			file_h;
 	int			element_no;
-	t_textures		*textures;
-
-/* 	int			F[3];
-	int			C[3]; */
-
+	t_textures	*textures;
 	t_player	*player;
+	int			wall_dir;
 
 }	t_data;
-
-//		NEEDED TEXTURES		//
-/* typedef enum e_textures {
-	NO,
-	SO,
-	WE,
-	EA,
-	F,
-	C	
-}	t_textures; */
 
 
 
@@ -174,8 +179,7 @@ void	read_file(t_data **data, char *file_name);
 //void	copy_file(t_data **data, char *file_name);
 
 //		utils.c			//
-int		ft_ccount(char *str);
-char	*ft_remove_spaces(char *str);
+void	get_wall_direction(t_data *data, t_player *player);
 int		rgb_to_hex(char *rgb);
 void	get_player_data(t_data *data);
 void	get_player_dir(t_data *data, int x, int y);
@@ -210,6 +214,16 @@ void	rotate_player(t_data *data, t_player *player, int dir);
 //		loop.c			//
 int 	raycasting_loop(t_data *data);
 
+//		textures.c		//
+int		is_xpm(t_textures *textures);
+int		check_access(t_textures *textures);
+void	load_xpm(t_data *data, t_image *img, char *file);
+void	convert_textures(t_data *data);
+int		check_textures(t_data *data);
+
+//		textures_utils.c	//
+int		*get_texture_addr(t_image *img);
+void	apply_textures(t_data *data, t_textures *textures, int x);
 
 void	file_type(char *file, t_data *data);
 void	file_elements(t_data *data);

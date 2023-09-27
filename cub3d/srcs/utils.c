@@ -3,51 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:37:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/20 16:48:26 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/09/27 15:09:40 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_ccount(char *str)
+void	get_wall_direction(t_data *data, t_player *player)
 {
-	int i;
-	int	count;
-
-	i = 0;
-	count = 0;
-	while(str && str[i] != '\0')
+	if (player->side == 1)
 	{
-		if (str[i] != '\n' && str[i] != ' ')
-			count++;
-		i++;
+		if (player->raydir_y < 0)
+			data->wall_dir = 2;
+		else
+			data->wall_dir = 1;
 	}
-	return (count);
-}
-
-char	*ft_remove_spaces(char *str)
-{
-	int 	i;
-	int		j;
-	char	*final;
-
-	i = 0;
-	j = 0;
-	final = (char *)malloc(sizeof(char) * (ft_ccount(str) + 1));
-	while(str[i] != '\0' && str[i] != '\n')
+	else
 	{
-		if (str[i] != '\n' && str[i] != ' ')
-		{
-			final[j] = str[i];
-			j++;
-		}
-		i++;
+		if (player->raydir_x < 0)
+			data->wall_dir = 4;
+		else
+			data->wall_dir = 3;
 	}
-	final[j] = '\0';
-	return (final);
 }
 
 /*

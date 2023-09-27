@@ -28,8 +28,8 @@ INCLIB			= $(INC)/../lib
 
 #_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ FILES _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
 NAME			= cub3D
-_FILES			= main init init2 keys read_file utils validate draw file_validation file_utils \
-					map_validation raycasting movement loop
+_FILES			= main init init2 keys utils validate draw file_validation file_utils \
+					map_validation raycasting movement loop textures textures_utils
 OBJS			= $(_FILES:%=%.o)
 TARGET			= $(addprefix $(OBJ_DIR)/, $(OBJS))
 
