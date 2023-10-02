@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 11:58:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/02 10:00:05 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 11:28:34 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,11 @@ void	load_xpm(t_data *data, t_image *img, char *file)
 	img->height = 0;
 	img->width = 0;
 	img->img = mlx_xpm_file_to_image(data->st_mlx->mlx, file, &img->width, &img->height);
+	if (!img->img)
+	{
+		printf("Error: Failed loading %s texture", file);
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	convert_textures(t_data *data)
@@ -82,10 +87,10 @@ void	convert_textures(t_data *data)
 
 int	check_textures(t_data *data)
 {
-	data->textures->NO = malloc(sizeof(t_image));
-	data->textures->SO = malloc(sizeof(t_image));
-	data->textures->EA = malloc(sizeof(t_image));
-	data->textures->WE = malloc(sizeof(t_image));
+	data->textures->NO = ft_calloc(1, sizeof(t_image));
+	data->textures->SO = ft_calloc(1, sizeof(t_image));
+	data->textures->EA = ft_calloc(1, sizeof(t_image));
+	data->textures->WE = ft_calloc(1, sizeof(t_image));
 	if (is_xpm(data->textures))
 		return (1);
 	if (check_access(data->textures))

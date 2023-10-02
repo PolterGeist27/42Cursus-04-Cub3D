@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:48:07 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/20 10:57:38 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 11:22:28 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	my_mlx_pixel_put(t_mlx *st_mlx, int x, int y, int color)
 	char	*dst;
 
 	dst = st_mlx->addr + (y * st_mlx->line_length + x * (st_mlx->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+	if (*dst)
+		*(unsigned int *)dst = color;
 }
 
 void	draw_map2D(t_data *data, t_mlx *st_mlx)

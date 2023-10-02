@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:24:21 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/27 15:13:19 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 12:00:20 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,6 @@ double	get_wall_x(t_player *player)
 	return (wall_x);
 }
 
-int	apply_shader(int color, int id)
-{
-	(void)color;
-	(void)id;
-	return (0);
-}
-
 t_image *get_img_struct(t_data *data)
 {
 	if (data->wall_dir == 1)
@@ -91,15 +84,15 @@ void	apply_textures(t_data *data, t_textures *textures, int x)
 	textures->tex_pos = (data->player->draw_start - data->st_mlx->img_w
 			/ 2 + data->player->line_height) * textures->tex_step;
 	y = data->player->draw_start;
-	while (y++ < data->player->draw_end)
+	while (y < data->player->draw_end)
 	{
 		ty = ((int) textures->tex_pos & ((img->height / 2) - 1));
 		textures->tex_pos += textures->tex_step;
 		if (x >= 0 && y >= 0 && tx >= 0 && ty >= 0)
 		{
-			textures->color = my_mlx_pixel_get(img, x, y);
-			//data->textures->color = apply_shader();
-			my_mlx_pixel_put(data->st_mlx->img, x ,y , textures->color);
+			textures->color = my_mlx_pixel_get(img, tx, ty);
+			my_mlx_pixel_put(data->st_mlx, x ,y , 0xFF0000);
 		}
+		y++;
 	}
 }

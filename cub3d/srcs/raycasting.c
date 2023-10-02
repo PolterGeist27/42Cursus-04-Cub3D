@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 12:04:17 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/02 10:00:52 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 12:00:02 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	raycasting(t_data *data)
 		get_wall_dist(data, data->player);
 		perform_dda(data, data->player);
 		get_wall_direction(data, data->player);
-		//apply_textures(data, data->textures, x);
-		draw_vertical_line(data, x, 0xFF0000);
+		apply_textures(data, data->textures, x);
+		//draw_vertical_line(data, x, 0xFF0000)
 		x++;
 	}
 	mlx_put_image_to_window(st_mlx->mlx, st_mlx->mlx_win, st_mlx->img, 0, 0);

@@ -1,11 +1,11 @@
-NO ./textures/wall.xpm
-SO ./textures/wall.xpm
+NO ./textures/redbrick_32.xpm
+SO ./textures/redbrick_32.xpm
 
 
 F 0,255,0
 
-WE ./textures/wall.xpm
-EA ./textures/wall.xpm
+WE ./textures/redbrick_32.xpm
+EA ./textures/redbrick_32.xpm
 
 
 
