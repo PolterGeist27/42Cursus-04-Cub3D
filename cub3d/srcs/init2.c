@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:49:52 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/02 11:56:40 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 12:21:34 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	init_window(t_data *data)
 {
 	init_mlx(data, &(data->st_mlx));
 	draw_celling_floor(data, data->st_mlx);
+	mlx_put_image_to_window(data->st_mlx->mlx, data->st_mlx->mlx_win,
+			data->st_mlx->img, 0, 0);
 	check_textures(data);
 	raycasting(data);
 	mlx_hook(data->st_mlx->mlx_win, 17, 0, ft_close, data);

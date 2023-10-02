@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:48:07 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/02 11:22:28 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 12:26:51 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ void	my_mlx_pixel_put(t_mlx *st_mlx, int x, int y, int color)
 	char	*dst;
 
 	dst = st_mlx->addr + (y * st_mlx->line_length + x * (st_mlx->bits_per_pixel / 8));
-	if (*dst)
-		*(unsigned int *)dst = color;
+	*(unsigned int *)dst = color;
 }
 
 void	draw_map2D(t_data *data, t_mlx *st_mlx)
@@ -78,7 +77,6 @@ void	draw_celling_floor(t_data *data, t_mlx *st_mlx)
 		}
 		x++;
 	}
-	mlx_put_image_to_window(st_mlx->mlx, st_mlx->mlx_win, st_mlx->img, 0, 0);
 }
 
 void	draw_vertical_line(t_data *data, int x, int color) // eventually swap color with texture ?

@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:24:21 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/02 12:00:20 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 12:23:07 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	apply_textures(t_data *data, t_textures *textures, int x)
 		if (x >= 0 && y >= 0 && tx >= 0 && ty >= 0)
 		{
 			textures->color = my_mlx_pixel_get(img, tx, ty);
-			my_mlx_pixel_put(data->st_mlx, x ,y , 0xFF0000);
+			my_mlx_pixel_put(data->st_mlx, x ,y , textures->color);
 		}
 		y++;
 	}
