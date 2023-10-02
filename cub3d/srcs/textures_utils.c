@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:24:21 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/02 12:23:07 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 13:02:07 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	apply_textures(t_data *data, t_textures *textures, int x)
 	tx = (int)(wall_x * (double)img->width);
 	tx = img->width - tx - 1;
 	textures->tex_step = 1.0 * img->width / data->player->line_height;
-	textures->tex_pos = (data->player->draw_start - data->st_mlx->img_w
+	textures->tex_pos = (data->player->draw_start - data->st_mlx->img_h
 			/ 2 + data->player->line_height) * textures->tex_step;
 	y = data->player->draw_start;
 	while (y < data->player->draw_end)

@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:48:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/02 09:58:33 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 13:01:58 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 /*
 TODO:
-    - Add verification for valid texture files;
-    - Textures;
-    ...
     - Norm;
 */
 

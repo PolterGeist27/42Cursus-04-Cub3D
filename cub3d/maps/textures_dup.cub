@@ -1,8 +1,8 @@
 
 NO ./textures/redbrick_32.xpm
 SO ./textures/redbrick_32.xpm
-WE ./textures/redbrick_32.xpm
-EA ./textures/redbrick_32.xpm
+WE ./textures/brick_64.xpm
+EA ./textures/brick_64.xpm
 
 F 0,255,0
 C 0,255,255
