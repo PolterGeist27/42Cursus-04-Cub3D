@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 11:58:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/27 15:26:42 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 10:00:05 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,10 @@ void	convert_textures(t_data *data)
 
 int	check_textures(t_data *data)
 {
-	data->textures->NO = ft_calloc(1, sizeof(t_image));
-	data->textures->SO = ft_calloc(1, sizeof(t_image));
-	data->textures->EA = ft_calloc(1, sizeof(t_image));
-	data->textures->WE = ft_calloc(1, sizeof(t_image));
-	printf("here\n");
+	data->textures->NO = malloc(sizeof(t_image));
+	data->textures->SO = malloc(sizeof(t_image));
+	data->textures->EA = malloc(sizeof(t_image));
+	data->textures->WE = malloc(sizeof(t_image));
 	if (is_xpm(data->textures))
 		return (1);
 	if (check_access(data->textures))

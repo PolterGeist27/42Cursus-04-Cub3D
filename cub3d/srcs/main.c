@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:48:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/27 15:16:39 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 09:58:33 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(int argc, char **argv)
 	init_data(data);
 	file_type(argv[1], data);
 	get_player_data(data);
-	check_textures(data);
 	init_window(data);
 	return (0);
 }
