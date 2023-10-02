@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 12:04:17 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/02 12:00:02 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 14:29:40 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	raycasting(t_data *data)
 {
 	int		x;
-	t_mlx *st_mlx;
-	
+	t_mlx	*st_mlx;
+
 	x = 0;
 	st_mlx = data->st_mlx;
 	while (x < st_mlx->img_w)
@@ -27,7 +27,6 @@ int	raycasting(t_data *data)
 		perform_dda(data, data->player);
 		get_wall_direction(data, data->player);
 		apply_textures(data, data->textures, x);
-		//draw_vertical_line(data, x, 0xFF0000)
 		x++;
 	}
 	mlx_put_image_to_window(st_mlx->mlx, st_mlx->mlx_win, st_mlx->img, 0, 0);
@@ -42,7 +41,7 @@ void	get_values(t_data *data, t_player *player, int x)
 	player->map_x = (int)player->pos_x;
 	player->map_y = (int)player->pos_y;
 	if (player->raydir_x == 0)
-		player->delta_dist_x = 1e30; // to avoid dividing by 0 we set it to a really big number
+		player->delta_dist_x = 1e30;
 	else
 		player->delta_dist_x = fabs(1 / player->raydir_x);
 	if (player->raydir_y == 0)
@@ -58,22 +57,26 @@ void	get_step(t_player *player)
 	if (player->raydir_x < 0)
 	{
 		player->step_x = -1;
-		player->side_dist_x = (player->pos_x - player->map_x) * player->delta_dist_x;
+		player->side_dist_x = (player->pos_x - player->map_x)
+			* player->delta_dist_x;
 	}
 	else
 	{
 		player->step_x = 1;
-		player->side_dist_x = (player->map_x + 1.0 - player->pos_x) * player->delta_dist_x;
+		player->side_dist_x = (player->map_x + 1.0 - player->pos_x)
+			* player->delta_dist_x;
 	}
 	if (player->raydir_y < 0)
 	{
 		player->step_y = -1;
-		player->side_dist_y = (player->pos_y - player->map_y) * player->delta_dist_y;
+		player->side_dist_y = (player->pos_y - player->map_y)
+			* player->delta_dist_y;
 	}
 	else
 	{
 		player->step_y = 1;
-		player->side_dist_y = (player->map_y + 1.0 - player->pos_y) * player->delta_dist_y;
+		player->side_dist_y = (player->map_y + 1.0 - player->pos_y)
+			* player->delta_dist_y;
 	}
 }
 
@@ -93,7 +96,7 @@ void	get_wall_dist(t_data *data, t_player *player)
 			player->map_y += player->step_y;
 			player->side = 1;
 		}
- 		if (data->map[player->map_y][player->map_x] == '1')
+		if (data->map[player->map_y][player->map_x] == '1')
 			player->hit = 1;
 	}
 	if (player->side == 0)
@@ -104,7 +107,7 @@ void	get_wall_dist(t_data *data, t_player *player)
 
 void	perform_dda(t_data *data, t_player *player)
 {
-	int h;
+	int	h;
 
 	h = data->st_mlx->img_h;
 	if (player->wall_dist)

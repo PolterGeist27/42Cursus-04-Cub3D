@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:24:21 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/02 13:02:07 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 14:34:05 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,13 @@ int	my_mlx_pixel_get(t_image *img, int x, int y)
 	(x * img->bits_per_pixel / 8))));
 }
 
-int	*get_texture_addr(t_image *img)
+int	get_texture_addr(t_image *img)
 {
-	int	*tmp;
-	int	row_start;
-	int	y;
-
-	tmp = ft_calloc(img->height * img->width, sizeof(int));
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);
-	y = 0;
-	while (y < img->height)
-	{
-		row_start = y * img->width;
-		ft_memcpy(tmp + row_start, img->addr + row_start,
-				img->width * sizeof(int));
-		y++;
-	}
-	return (tmp);
+	if (!img->addr)
+		return (1);
+	return (0);
 }
 
 double	get_wall_x(t_player *player)
@@ -55,16 +44,16 @@ double	get_wall_x(t_player *player)
 	return (wall_x);
 }
 
-t_image *get_img_struct(t_data *data)
+t_image	*get_img_struct(t_data *data)
 {
 	if (data->wall_dir == 1)
-		return (data->textures->NO);
+		return (data->textures->no);
 	if (data->wall_dir == 2)
-		return (data->textures->SO);
+		return (data->textures->so);
 	if (data->wall_dir == 3)
-		return (data->textures->EA);
+		return (data->textures->ea);
 	if (data->wall_dir == 4)
-		return (data->textures->WE);
+		return (data->textures->we);
 	return (NULL);
 }
 

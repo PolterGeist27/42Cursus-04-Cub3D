@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   file_validation.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 09:48:13 by pealexan          #+#    #+#             */
-/*   Updated: 2023/09/20 15:56:19 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/10/02 14:13:29 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ void	clean_structs(t_data *data, char *error, char **split, int i)
 	if (data->map)
 		ft_free_split(data->map);
 	free(data->player);
-	if (data->textures->NO_path)
-		free(data->textures->NO_path);
-	if (data->textures->SO_path)
-		free(data->textures->SO_path);
-	if (data->textures->EA_path)
-		free(data->textures->EA_path);
-	if (data->textures->WE_path)
-		free(data->textures->WE_path);
+	if (data->textures->no_path)
+		free(data->textures->no_path);
+	if (data->textures->so_path)
+		free(data->textures->so_path);
+	if (data->textures->ea_path)
+		free(data->textures->ea_path);
+	if (data->textures->we_path)
+		free(data->textures->we_path);
 	free(data->textures);
 	free(data);
 	if (i == 1)
@@ -39,18 +39,18 @@ void	clean_structs(t_data *data, char *error, char **split, int i)
 
 void	handle_elements(char **check, t_data *data)
 {
-	if (!ft_strncmp(check[0], "NO", 2) && data->textures->NO_path == NULL)
-		data->textures->NO_path = ft_strtrim(check[1], "\n");
-	else if (!ft_strncmp(check[0], "SO", 2) && data->textures->SO_path == NULL)
-		data->textures->SO_path = ft_strtrim(check[1], "\n");
-	else if (!ft_strncmp(check[0], "WE", 2) && data->textures->WE_path == NULL)
-		data->textures->WE_path = ft_strtrim(check[1], "\n");
-	else if (!ft_strncmp(check[0], "EA", 2) && data->textures->EA_path == NULL)
-		data->textures->EA_path = ft_strtrim(check[1], "\n");
-	else if (!ft_strncmp(check[0], "C", 1) && data->textures->C_colour == 0)
-		data->textures->C_colour = rgb_to_hex(ft_strtrim(check[1], "\n"));
-	else if (!ft_strncmp(check[0], "F", 1) && data->textures->F_colour == 0)
-		data->textures->F_colour = rgb_to_hex(ft_strtrim(check[1], "\n"));
+	if (!ft_strncmp(check[0], "NO", 2) && data->textures->no_path == NULL)
+		data->textures->no_path = ft_strtrim(check[1], "\n");
+	else if (!ft_strncmp(check[0], "SO", 2) && data->textures->so_path == NULL)
+		data->textures->so_path = ft_strtrim(check[1], "\n");
+	else if (!ft_strncmp(check[0], "WE", 2) && data->textures->we_path == NULL)
+		data->textures->we_path = ft_strtrim(check[1], "\n");
+	else if (!ft_strncmp(check[0], "EA", 2) && data->textures->ea_path == NULL)
+		data->textures->ea_path = ft_strtrim(check[1], "\n");
+	else if (!ft_strncmp(check[0], "C", 1) && data->textures->c_colour == 0)
+		data->textures->c_colour = rgb_to_hex(ft_strtrim(check[1], "\n"));
+	else if (!ft_strncmp(check[0], "F", 1) && data->textures->f_colour == 0)
+		data->textures->f_colour = rgb_to_hex(ft_strtrim(check[1], "\n"));
 	else
 		clean_structs(data, "Error\nDuplicate identifier detected\n", check, 1);
 }
@@ -119,7 +119,7 @@ void	file_type(char *file, t_data *data)
 	int		fd;
 
 	fd = 0;
-	temp = ft_strrchr(file, '.');	
+	temp = ft_strrchr(file, '.');
 	if (!temp || ft_strlen(temp) != 4 || ft_strncmp(temp, ".cub", 4))
 		clean_structs(data, "Error\nInvalid file type\n", 0, 1);
 	fd = open(file, O_RDONLY);

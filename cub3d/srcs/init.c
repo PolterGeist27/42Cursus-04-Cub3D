@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:57:25 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/21 13:56:17 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 14:16:57 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,23 @@ void	init_data(t_data *data)
 	data->file_h = 0;
 	data->element_no = 0;
 	data->textures = (t_textures *)malloc(sizeof(t_textures));
-	//add malloc protection function
-	data->textures->NO_path = NULL;
-	data->textures->SO_path = NULL;
-	data->textures->EA_path = NULL;
-	data->textures->WE_path = NULL;
-	data->textures->C_colour = 0;
-	data->textures->F_colour = 0;
+	if (!data->textures)
+		ft_error(&data, "malloc of t_textures failed.\n");
+	data->textures->no_path = NULL;
+	data->textures->so_path = NULL;
+	data->textures->ea_path = NULL;
+	data->textures->we_path = NULL;
+	data->textures->c_colour = 0;
+	data->textures->f_colour = 0;
 	data->player = (t_player *)malloc(sizeof(t_player));
-	//add malloc protection function
+	if (!data->player)
+		ft_error(&data, "malloc of t_player failed/");
 	init_player(data->player);
 }
 
 int	ft_close(t_data *data)
 {
-	t_mlx *st_mlx;
+	t_mlx	*st_mlx;
 
 	st_mlx = data->st_mlx;
 	mlx_destroy_window(st_mlx->mlx, st_mlx->mlx_win);
@@ -47,9 +49,10 @@ int	ft_close(t_data *data)
 	exit(EXIT_SUCCESS);
 }
 
-void	ft_error(t_data **data)
+void	ft_error(t_data **data, char *error)
 {
-	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd("Error: ", 2);
+	ft_putstr_fd(error, 2);
 	mlx_destroy_window((*data)->st_mlx->mlx, (*data)->st_mlx->mlx_win);
 	mlx_destroy_image((*data)->st_mlx->mlx, (*data)->st_mlx->img);
 	mlx_destroy_display((*data)->st_mlx->mlx);
@@ -74,9 +77,9 @@ void	free_data(t_data *data)
 
 void	free_textures(t_textures *textures)
 {
-	free(textures->NO_path);
-	free(textures->SO_path);
-	free(textures->EA_path);
-	free(textures->WE_path);
+	free(textures->no_path);
+	free(textures->so_path);
+	free(textures->ea_path);
+	free(textures->we_path);
 	free(textures);
 }

@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:48:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/02 13:01:58 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 14:26:19 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 /*
 TODO:
+	- End program when textures dont work;
+	- Memory leaks;
     - Norm;
 */
 
 int	main(int argc, char **argv)
 {
-	t_data *data;
+	t_data	*data;
 
 	if (argc != 2)
 	{

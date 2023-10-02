@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/27 15:11:50 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/02 14:33:10 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,39 +47,35 @@ typedef struct s_image
 	int		line_length;
 	int		endian;
 
-} t_image;
+}	t_image;
 
 typedef struct s_textures
 {
-	int		**tex;
 	float	tex_step;
 	float	tex_pos;
 	int		color;
 
-	char	*NO_path;
-	char	*SO_path;
-	char	*EA_path;
-	char	*WE_path;
-	int		C_colour;
-	int		F_colour;
-	t_image	*NO;
-	t_image	*SO;
-	t_image	*EA;
-	t_image	*WE;
+	char	*no_path;
+	char	*so_path;
+	char	*ea_path;
+	char	*we_path;
+	int		c_colour;
+	int		f_colour;
+	t_image	*no;
+	t_image	*so;
+	t_image	*ea;
+	t_image	*we;
 
 }	t_textures;
 
 typedef struct s_player
 {
-	// player position
 	double	pos_x;
 	double	pos_y;
 
-	// direction vector
 	double	dir_x;
 	double	dir_y;
 
-	//	Plane vector
 	double	plane_x;
 	double	plane_y;
 
@@ -89,19 +85,15 @@ typedef struct s_player
 	double	raydir_x;
 	double	raydir_y;
 
-	// Current map coordinates
 	int		map_x;
 	int		map_y;
 
-	// which direction to step into, either +1 or -1
 	int		step_x;
 	int		step_y;
 
-	// Length of ray from current position to next x or y-side
 	double	side_dist_x;
 	double	side_dist_y;
 
-	// Length of ray from one x or y-side to next x or y-side
 	double	delta_dist_x;
 	double	delta_dist_y;
 
@@ -119,9 +111,8 @@ typedef struct s_player
 	int		left;
 	int		right;
 
-	// Rotate clockwise & counterclockwise
-	int		rotCW;
-	int		rotCCW;
+	int		rotcw;
+	int		rotccw;
 }	t_player;
 
 typedef struct s_mlx {
@@ -137,8 +128,7 @@ typedef struct s_mlx {
 }	t_mlx;
 
 typedef struct s_data {
-
-	t_mlx	*st_mlx; // st = struct
+	t_mlx		*st_mlx;
 
 	char		**map;
 	int			map_w;
@@ -153,19 +143,17 @@ typedef struct s_data {
 
 }	t_data;
 
-
-
 //      init.c          //
 void	init_data(t_data *data);
 int		ft_close(t_data *data);
-void	ft_error(t_data **data);
+void	ft_error(t_data **data, char *error);
 void	free_data(t_data *data);
 void	free_textures(t_textures *textures);
 
 //		init2.c			//
-void    init_mlx(t_data *data, t_mlx **st_mlx);
+void	init_mlx(t_data *data, t_mlx **st_mlx);
 void	init_window(t_data *data);
-void 	init_player(t_player *player);
+void	init_player(t_player *player);
 
 //      keys.c          //
 int		check_keys(int key, t_data *data);
@@ -207,22 +195,22 @@ void	get_wall_dist(t_data *data, t_player *player);
 void	perform_dda(t_data *data, t_player *player);
 
 //		movement.c		//
-void    move_vertical(t_data *data, t_player *player, int dir);
-void    move_horizontal(t_data *data, t_player *player, int dir);
+void	move_vertical(t_data *data, t_player *player, int dir);
+void	move_horizontal(t_data *data, t_player *player, int dir);
 void	rotate_player(t_data *data, t_player *player, int dir);
 
 //		loop.c			//
-int 	raycasting_loop(t_data *data);
+int		raycasting_loop(t_data *data);
 
 //		textures.c		//
-int		is_xpm(t_textures *textures);
+int		is_xpm(t_textures *textures, int tex);
 int		check_access(t_textures *textures);
 void	load_xpm(t_data *data, t_image *img, char *file);
 void	convert_textures(t_data *data);
 int		check_textures(t_data *data);
 
 //		textures_utils.c	//
-int		*get_texture_addr(t_image *img);
+int		get_texture_addr(t_image *img);
 void	apply_textures(t_data *data, t_textures *textures, int x);
 
 void	file_type(char *file, t_data *data);
