@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:59:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/02 14:33:10 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/03 10:26:27 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,9 +146,9 @@ typedef struct s_data {
 //      init.c          //
 void	init_data(t_data *data);
 int		ft_close(t_data *data);
-void	ft_error(t_data **data, char *error);
+void	ft_error(t_data *data, char *error);
 void	free_data(t_data *data);
-void	free_textures(t_textures *textures);
+void	free_textures(t_textures *textures, t_mlx *st_mlx);
 
 //		init2.c			//
 void	init_mlx(t_data *data, t_mlx **st_mlx);
@@ -164,24 +164,15 @@ int		get_width(char *file_name);
 int		get_height(char *file_name);
 void	fill_row(char *row, char *line);
 void	read_file(t_data **data, char *file_name);
-//void	copy_file(t_data **data, char *file_name);
 
 //		utils.c			//
 void	get_wall_direction(t_data *data, t_player *player);
 int		rgb_to_hex(char *rgb);
 void	get_player_data(t_data *data);
 void	get_player_dir(t_data *data, int x, int y);
-
-//		validate.c		//
-//void	file_type(char *file);
-int		check_walls(t_data *data);
-int		check_allowed_chars(t_data *data);
-
-//		validate2.c		//
-int		check_info(t_data *data, char *line);
+void	get_player_dir2(t_data *data, int x, int y);
 
 //		draw.c			//
-int		check_limits(t_data *data, int x, int y);
 void	my_mlx_pixel_put(t_mlx *st_mlx, int x, int y, int color);
 void	draw_map2D(t_data *data, t_mlx *st_mlx);
 void	draw_celling_floor(t_data *data, t_mlx *st_mlx);

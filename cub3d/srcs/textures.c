@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 11:58:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/02 14:32:56 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/03 10:31:40 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,6 @@ void	load_xpm(t_data *data, t_image *img, char *file)
 	img->width = 0;
 	img->img = mlx_xpm_file_to_image(data->st_mlx->mlx, file,
 			&img->width, &img->height);
-	if (!img->img)
-	{
-		printf("Error: Failed loading %s texture", file);
-		exit(EXIT_FAILURE);
-	}
 }
 
 void	convert_textures(t_data *data)

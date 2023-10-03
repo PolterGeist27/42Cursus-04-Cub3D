@@ -6,20 +6,11 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:48:07 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/02 14:12:58 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/03 10:10:17 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	check_limits(t_data *data, int x, int y)
-{
-	if (data->st_mlx->img_w - 1 < x || x < 0)
-		return (0);
-	if (data->st_mlx->img_h - 1 < y || y < 0)
-		return (0);
-	return (1);
-}
 
 void	my_mlx_pixel_put(t_mlx *st_mlx, int x, int y, int color)
 {

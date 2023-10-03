@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:49:52 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/02 14:24:29 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/03 10:30:08 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ void	init_mlx(t_data *data, t_mlx **st_mlx)
 void	init_window(t_data *data)
 {
 	init_mlx(data, &(data->st_mlx));
+	if (check_textures(data))
+		ft_error(data, "couldn't load textures.\n");
 	draw_celling_floor(data, data->st_mlx);
 	mlx_put_image_to_window(data->st_mlx->mlx, data->st_mlx->mlx_win,
 		data->st_mlx->img, 0, 0);
-	check_textures(data);
 	raycasting(data);
 	mlx_hook(data->st_mlx->mlx_win, 17, 0, ft_close, data);
 	mlx_hook(data->st_mlx->mlx_win, KeyPress, KeyPressMask, check_keys, data);

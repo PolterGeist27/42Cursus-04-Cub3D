@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:37:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/27 15:09:40 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/03 10:08:18 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	get_wall_direction(t_data *data, t_player *player)
 int	rgb_to_hex(char *rgb)
 {
 	int		result;
-	int 	red;
+	int		red;
 	int		green;
 	int		blue;
 	char	**rgb_split;
@@ -96,7 +96,13 @@ void	get_player_dir(t_data *data, int x, int y)
 		data->player->plane_x = -1;
 		data->player->plane_y = 0;
 	}
-	else if (data->map[y][x] == 'E')
+	else
+		get_player_dir2(data, x, y);
+}
+
+void	get_player_dir2(t_data *data, int x, int y)
+{
+	if (data->map[y][x] == 'E')
 	{
 		data->player->dir_x = 1;
 		data->player->dir_y = 0;
