@@ -28,8 +28,6 @@ int	check_keys(int key, t_data *data)
 		data->player->rotcw = -1;
 	else if (key == LEFT)
 		data->player->rotccw = 1;
-	else
-		printf("%d\n", key);
 	return (0);
 }
 
