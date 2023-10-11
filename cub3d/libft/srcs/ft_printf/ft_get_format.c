@@ -6,7 +6,7 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:58:16 by pealexan          #+#    #+#             */
-/*   Updated: 2023/04/28 14:31:50 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/10/11 09:40:53 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	ft_read_buffer(char *buffer, t_buffer *v)
 			v->point = 1;
 		else if ((*buffer >= '1' && *buffer <= '9'))
 			buffer += ft_get_v(v, buffer);
-	buffer++;
+		buffer++;
 	}
 }
 

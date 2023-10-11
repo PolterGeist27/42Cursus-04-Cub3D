@@ -6,7 +6,7 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:59:53 by pealexan          #+#    #+#             */
-/*   Updated: 2023/04/28 14:31:25 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/10/11 09:41:43 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,11 @@ static int	ft_print_minus_w(char *hexastr, t_buffer *v, int w, int prec)
 
 	count = 0;
 	if (v->hash && hexastr[0] != '0')
-			count += write(1, "0x", 1);
+		count += write(1, "0x", 1);
 	if (hexastr[0] == '0' && v->point && !v->prec)
 		w++;
 	while ((prec--) > (int)ft_strlen(hexastr))
-			count += write(1, "0", 1);
+		count += write(1, "0", 1);
 	if (hexastr[0] != '0' || (hexastr[0] == '0' && v->point && v->prec)
 		|| (hexastr[0] == '0' && !v->point && !v->prec))
 		count += ft_putstr(hexastr);

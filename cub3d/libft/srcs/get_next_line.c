@@ -6,7 +6,7 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 09:18:58 by pealexan          #+#    #+#             */
-/*   Updated: 2023/09/07 15:22:41 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/10/11 09:39:51 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static char	*ft_get_line(int fd, char *buffer, char *stash)
 
 	bytes_read = 1;
 	while (bytes_read != 0)
-	{	
+	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read < 0)
 			return (0);

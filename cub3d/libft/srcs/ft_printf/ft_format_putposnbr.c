@@ -6,7 +6,7 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:59:53 by pealexan          #+#    #+#             */
-/*   Updated: 2023/04/28 14:31:40 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/10/11 09:41:13 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static int	ft_print_minus_w(char *number, t_buffer *v, int w, int prec)
 	if (v->plus)
 		count += write(1, "+", 1);
 	while ((prec--) > (int)ft_strlen(number))
-			count += write(1, "0", 1);
+		count += write(1, "0", 1);
 	if (number[0] != '0' || (number[0] == '0' && v->point && v->prec)
 		|| (number[0] == '0' && !v->point && !v->prec))
 		count += ft_putstr(number);

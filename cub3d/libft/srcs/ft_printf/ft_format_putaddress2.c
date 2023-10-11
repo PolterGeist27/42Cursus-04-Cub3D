@@ -6,7 +6,7 @@
 /*   By: pealexan <pealexan@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:22:03 by pealexan          #+#    #+#             */
-/*   Updated: 2023/04/28 14:31:32 by pealexan         ###   ########.fr       */
+/*   Updated: 2023/10/11 09:41:27 by pealexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	ft_paddmw1(char *hexastr, t_buffer *v, int prec, int len)
 
 	count = 0;
 	if (v->space)
-			count += write(1, " ", 1);
+		count += write(1, " ", 1);
 	if (v->plus)
-			count += write(1, "+", 1);
+		count += write(1, "+", 1);
 	if (ft_strncmp(hexastr, "(nil)", 6))
 	{
 		count += write(1, "0x", 2);

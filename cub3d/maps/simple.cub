@@ -1,11 +1,11 @@
-NO ./path_to_the_north_texture
-SO ./path_to_the_south_texture
+NO ./textures/gray_64.xpm
+SO ./textures/mossy_64.xpm
 
 
 F 0,255,0
 
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
+WE ./textures/brown_64.xpm
+EA ./textures/brick_64.xpm
 
 
 
